@@ -1,0 +1,3 @@
+libc est la librairie fournie pour les programmes utilisateurs seulement. Il s'agit d'un port de newlib
+pour BlenderOS.
+Le noyau utilise les fonctions définies dans utils.

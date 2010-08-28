@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>Allocation mmoire:  Fichier source de pmem.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css">
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Généré par Doxygen 1.5.8 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Page&nbsp;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&nbsp;associées</span></a></li>
+      <li><a href="annotated.html"><span>Structures&nbsp;de&nbsp;données</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Liste&nbsp;des&nbsp;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Portée&nbsp;globale</span></a></li>
+    </ul>
+  </div>
+<h1>pmem.h</h1><a href="pmem_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/** \file pmem.h</span>
+<a name="l00002"></a>00002 <span class="comment"> * \brief Définition du gestionnaire de mémoire physique.</span>
+<a name="l00003"></a>00003 <span class="comment"> *</span>
+<a name="l00004"></a>00004 <span class="comment"> * Contient toutes les fonctions utiles à l'initialisation</span>
+<a name="l00005"></a>00005 <span class="comment"> * et au bon fonctionnement du gestionnaire de mémoire.</span>
+<a name="l00006"></a>00006 <span class="comment"> * \todo Ajouter une fonction permettant d'allouer plusieurs pages</span>
+<a name="l00007"></a>00007 <span class="comment"> * \todo Ajouter une fonction permettant d'allouer plusieurs pages contiguës</span>
+<a name="l00008"></a>00008 <span class="comment"> */</span>
+<a name="l00009"></a>00009 <span class="preprocessor">#ifndef PMEM_H_INCLUDED</span>
+<a name="l00010"></a>00010 <span class="preprocessor"></span><span class="preprocessor">#define PMEM_H_INCLUDED</span>
+<a name="l00011"></a>00011 <span class="preprocessor"></span>
+<a name="l00012"></a><a class="code" href="pmem_8h.html#7d467c1d283fdfa1f2081ba1e0d01b6e">00012</a> <span class="preprocessor">#define PAGE_SIZE 4096</span>
+<a name="l00013"></a>00013 <span class="preprocessor"></span><span class="preprocessor">#include "<a class="code" href="utils_8h.html">utils.h</a>"</span><span class="comment"></span>
+<a name="l00014"></a>00014 <span class="comment">/** \brief Header décrivant les structures de gestion de la mémoire</span>
+<a name="l00015"></a>00015 <span class="comment"> *</span>
+<a name="l00016"></a>00016 <span class="comment"> *</span>
+<a name="l00017"></a>00017 <span class="comment"> */</span>
+<a name="l00018"></a><a class="code" href="structpmem__header.html">00018</a> <span class="keyword">struct </span><a class="code" href="structpmem__header.html" title="Header décrivant les structures de gestion de la mémoire.">pmem_header</a>
+<a name="l00019"></a>00019 {<span class="comment"></span>
+<a name="l00020"></a>00020 <span class="comment">    /** nombre de pages d'où nombre de blocs*/</span>
+<a name="l00021"></a><a class="code" href="structpmem__header.html#3ea2eb0b002e2ff2543156fd7fc7c469">00021</a>     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="structpmem__header.html#3ea2eb0b002e2ff2543156fd7fc7c469" title="nombre de pages d&amp;#39;où nombre de blocs">nbPages</a>;<span class="comment"></span>
+<a name="l00022"></a>00022 <span class="comment">    /** taille d'un bloc*/</span>
+<a name="l00023"></a><a class="code" href="structpmem__header.html#16dc38135487c184cff3d68826a7e97f">00023</a>     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="structpmem__header.html#16dc38135487c184cff3d68826a7e97f" title="taille d&amp;#39;un bloc">blockSize</a>;<span class="comment"></span>
+<a name="l00024"></a>00024 <span class="comment">    /**Nombre de pages utilisées ...?...*/</span>
+<a name="l00025"></a><a class="code" href="structpmem__header.html#f2b68df2f19d06b1fe5f5c2fc2023859">00025</a>     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="structpmem__header.html#f2b68df2f19d06b1fe5f5c2fc2023859" title="Nombre de pages utilisées .">nbPagesUsed</a>;<span class="comment"></span>
+<a name="l00026"></a>00026 <span class="comment">    /**hauteur de l'arbre binaire*/</span>
+<a name="l00027"></a><a class="code" href="structpmem__header.html#3ecf848dc2154906934de9acd9baba06">00027</a>     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="structpmem__header.html#3ecf848dc2154906934de9acd9baba06" title="hauteur de l&amp;#39;arbre binaire">binaryHeight</a>;<span class="comment"></span>
+<a name="l00028"></a>00028 <span class="comment">    /**Adresse de début de la bitmap, la memory map*/</span>
+<a name="l00029"></a><a class="code" href="structpmem__header.html#3931ae58a368124bbf47a5fd45ef55b4">00029</a>     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>  * <a class="code" href="structpmem__header.html#3931ae58a368124bbf47a5fd45ef55b4" title="Adresse de début de la bitmap, la memory map.">mmap</a>;<span class="comment"></span>
+<a name="l00030"></a>00030 <span class="comment">    /**Adresse du début de l'arbre binaire*/</span>
+<a name="l00031"></a><a class="code" href="structpmem__header.html#d287e7a5bc554df90f5fc957869ae6e0">00031</a>     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>* <a class="code" href="structpmem__header.html#d287e7a5bc554df90f5fc957869ae6e0" title="Adresse du début de l&amp;#39;arbre binaire.">binaryTree</a>;<span class="comment"></span>
+<a name="l00032"></a>00032 <span class="comment">    /**Décalage en bit vers le dernier bit mis à 1, désignant une page allouée*/</span>
+<a name="l00033"></a><a class="code" href="structpmem__header.html#061340dda7c133a821055cef3c4b16ad">00033</a>     <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <a class="code" href="structpmem__header.html#061340dda7c133a821055cef3c4b16ad" title="Décalage en bit vers le dernier bit mis à 1, désignant une page allouée.">firstFreePage</a>;
+<a name="l00034"></a>00034 }__attribute__( (<a class="code" href="pmem_8h.html#1e7cdd647eae0eb58e4d6f809918ebd6" title="Header décrivant les structures de gestion de la mémoire.">packed</a>));
+<a name="l00035"></a>00035 <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structpmem__header.html" title="Header décrivant les structures de gestion de la mémoire.">pmem_header</a> <a class="code" href="structpmem__header.html" title="Header décrivant les structures de gestion de la mémoire.">pmem_header</a>;
+<a name="l00036"></a>00036 <span class="comment"></span>
+<a name="l00037"></a>00037 <span class="comment">/**L'adresse de début des structures de gestion de la mémoire physique</span>
+<a name="l00038"></a>00038 <span class="comment"> * \todo  transformer pmem_adrr en pmem_header</span>
+<a name="l00039"></a>00039 <span class="comment"> */</span>
+<a name="l00040"></a><a class="code" href="pmem_8h.html#75dfea065d9f92402756bf5c80de8a13">00040</a> <span class="keyword">static</span> <a class="code" href="structpmem__header.html" title="Header décrivant les structures de gestion de la mémoire.">pmem_header</a> * <a class="code" href="pmem_8h.html#75dfea065d9f92402756bf5c80de8a13" title="L&amp;#39;adresse de début des structures de gestion de la mémoire physique.">header</a>=NULL;
+<a name="l00041"></a>00041 
+<a name="l00042"></a>00042 <span class="comment"></span>
+<a name="l00043"></a>00043 <span class="comment">/**\brief marque une page comme utilisée</span>
+<a name="l00044"></a>00044 <span class="comment"> * \param bit numéro de la page en comptant à partir de 0</span>
+<a name="l00045"></a>00045 <span class="comment"> * \todo n'utiliser que les combinaisons de bits</span>
+<a name="l00046"></a>00046 <span class="comment"> */</span>
+<a name="l00047"></a>00047 <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="pmem_8c.html#46f32f6e351d9d57bff39ede2499c599" title="marque une page comme utilisée">mmap_set</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> bit);<span class="comment"></span>
+<a name="l00048"></a>00048 <span class="comment">/** \brief marque une page comme non utilisée</span>
+<a name="l00049"></a>00049 <span class="comment"> * \param bit numéro du bit en comptant à partir de à</span>
+<a name="l00050"></a>00050 <span class="comment"> */</span>
+<a name="l00051"></a>00051 <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="pmem_8c.html#21db1020939cc0de4afeafc50a1291bb" title="marque une page comme non utilisée">mmap_unset</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> bit);<span class="comment"></span>
+<a name="l00052"></a>00052 <span class="comment">/** \brief Teste si la page au bit demandé est libre</span>
+<a name="l00053"></a>00053 <span class="comment"> * \param bit le numéro de la page à tester, en comptant à partir de 0</span>
+<a name="l00054"></a>00054 <span class="comment"> */</span>
+<a name="l00055"></a>00055 <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="pmem_8c.html#9ff0fdcf9ff9a7a7eab4f4c847396a01" title="Teste si la page au bit demandé est libre.">mmap_test</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> bit);<span class="comment"></span>
+<a name="l00056"></a>00056 <span class="comment">/** \brief Recherche la première page de libre</span>
+<a name="l00057"></a>00057 <span class="comment"> * \return l'offset en bit de la première page de libre, -1 si toute la mémoire est occupée</span>
+<a name="l00058"></a>00058 <span class="comment"> */</span>
+<a name="l00059"></a>00059 <span class="keywordtype">int</span> <a class="code" href="pmem_8c.html#fc7ca1eea6ea2b18777355203a85315c" title="Recherche la première page de libre.">mmap_first_free</a> ();<span class="comment"></span>
+<a name="l00060"></a>00060 <span class="comment">/** \brief Marque une région comme utilisée</span>
+<a name="l00061"></a>00061 <span class="comment"> * \param baseAddr adresse de début de la région dans la mémoire physique</span>
+<a name="l00062"></a>00062 <span class="comment"> * \param taille taille de la région en bits</span>
+<a name="l00063"></a>00063 <span class="comment"> */</span>
+<a name="l00064"></a>00064 <span class="keywordtype">void</span> <a class="code" href="pmem_8c.html#70085b736e8038b104816e9d68ad1a65" title="Marque une région comme utilisée.">pmem_set_region</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> baseAddr, <span class="keywordtype">size_t</span> taille);<span class="comment"></span>
+<a name="l00065"></a>00065 <span class="comment">/** \brief Marque une région de la mémoire physique, une suite de pages, comme inutilisée</span>
+<a name="l00066"></a>00066 <span class="comment"> *</span>
+<a name="l00067"></a>00067 <span class="comment"> * On optimise cela en allouant ce qui est possible par groupes de 32, soit un int</span>
+<a name="l00068"></a>00068 <span class="comment"> * \param baseAddr adresse de début de la région dans la mémoire physique \i pas dans la bitmap</span>
+<a name="l00069"></a>00069 <span class="comment"> * \param taille taille de la région en bits</span>
+<a name="l00070"></a>00070 <span class="comment"> */</span>
+<a name="l00071"></a>00071 <span class="keywordtype">void</span> <a class="code" href="pmem_8c.html#2bae5e50b780369741ab3e56330fae92" title="Marque une région de la mémoire physique, une suite de pages, comme inutilisée...">pmem_unset_region</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> baseAddr, <span class="keywordtype">size_t</span> taille);<span class="comment"></span>
+<a name="l00072"></a>00072 <span class="comment">/** \brief Prépare le gestionnaire de mémoire physique</span>
+<a name="l00073"></a>00073 <span class="comment"> *</span>
+<a name="l00074"></a>00074 <span class="comment"> * Les structures de données utiles à la gestion de la mémoire physique, c'est-à-dire, du système de pagination, sont</span>
+<a name="l00075"></a>00075 <span class="comment"> * initialisées. A appeler en tout premier (sinon erreurs !)</span>
+<a name="l00076"></a>00076 <span class="comment"> * \param addr adresse du debut des structures de données.</span>
+<a name="l00077"></a>00077 <span class="comment"> * \param tailleMem la taille de la mémoire</span>
+<a name="l00078"></a>00078 <span class="comment"> * \param taillePage la taille d'une page</span>
+<a name="l00079"></a>00079 <span class="comment"> * \todo Permettre le passage d'une memory map</span>
+<a name="l00080"></a>00080 <span class="comment"> */</span>
+<a name="l00081"></a>00081 <span class="keywordtype">int</span> <a class="code" href="pmem_8c.html#fb0167e49a57b53d9729abf45c149878" title="Prépare le gestionnaire de mémoire physique.">pmem_init</a>(<span class="keywordtype">void</span> *addr,<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> tailleMem, <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> taillePage);
+<a name="l00082"></a>00082 <span class="comment"></span>
+<a name="l00083"></a>00083 <span class="comment">/** \brief Alloue et initialise la bitmap</span>
+<a name="l00084"></a>00084 <span class="comment"> * \return 0 en cas d'échec</span>
+<a name="l00085"></a>00085 <span class="comment"> * \return 0 en cas de succès</span>
+<a name="l00086"></a>00086 <span class="comment"> */</span>
+<a name="l00087"></a>00087 <span class="keywordtype">int</span> <a class="code" href="pmem_8c.html#fd973407223b10bae25a48caeedbc81f" title="Alloue et initialise la bitmap.">init_mmap</a>();
+<a name="l00088"></a>00088 
+<a name="l00089"></a>00089 <span class="preprocessor">#endif // PMEM_H_INCLUDED</span>
+</pre></div></div>
+<hr size="1"><address style="text-align: right;"><small>Généré le Thu Aug 5 21:44:46 2010 pour Allocation mmoire par&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
+</body>
+</html>

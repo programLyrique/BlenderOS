@@ -1,0 +1,23 @@
+Dans ce répertoire, on trouve le linker script de BlenderOS, blenderos.ld, ainsi
+que des scripts permettant de développer plus facilement.
+
+¤ mount_test.sh
+	arguments : mount ou umount
+	Monte (ou démonte) la disquette de test en tant que loop device (dans 
+	/mnt/loopBlenderOS)
+	A effectuer en root
+	
+	Ne pas utiliser !
+	
+¤ update_kernel.sh :
+	met à jour le noyau à partir de la loop device déjà créée /dev/loop0
+	faire losetup ...
+	
+¤ compile_launch.sh :
+	compile
+	met à jour le noyau avec update_kernel
+	lance bochs
+
+¤ create_loopdevice.sh :
+	crée une loop device à partir de l'image de disque dur c.img
+	uitliser ensuite update_kernel.sh pour mettre à jour le noyau

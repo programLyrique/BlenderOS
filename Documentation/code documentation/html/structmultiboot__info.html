@@ -1,0 +1,410 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>BlenderOS: Référence de la structure multiboot_info_t</title>
+<link href="tabs.css" rel="stylesheet" type="text/css">
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Généré par Doxygen 1.5.8 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Page&nbsp;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&nbsp;associées</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Structures&nbsp;de&nbsp;données</span></a></li>
+      <li><a href="files.html"><span>Fichiers</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="annotated.html"><span>Structures&nbsp;de&nbsp;données</span></a></li>
+      <li><a href="classes.html"><span>Index&nbsp;des&nbsp;structures&nbsp;de&nbsp;données</span></a></li>
+      <li><a href="functions.html"><span>Champs&nbsp;de&nbsp;donnée</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Référence de la structure multiboot_info_t</h1><!-- doxytag: class="multiboot_info" -->La structure contient les informations donn�es par le secteur de boot.  
+<a href="#_details">Plus de détails...</a>
+<p>
+<h2>Champs de données</h2>
+<ul>
+<li><a class="el" href="multiboot_8h.html#009f355da41fed4badb8a52d432f5186">multiboot_uint32_t</a> <a class="el" href="structmultiboot__info.html#0213694a691d49db53a12075c72dd188">flags</a>
+<li><a class="el" href="multiboot_8h.html#009f355da41fed4badb8a52d432f5186">multiboot_uint32_t</a> <a class="el" href="structmultiboot__info.html#90365badcf368f7cea5a69ce6159db7c">mem_lower</a>
+<li><a class="el" href="multiboot_8h.html#009f355da41fed4badb8a52d432f5186">multiboot_uint32_t</a> <a class="el" href="structmultiboot__info.html#d1ad87832efda8fcf9e215dff4bd9473">mem_upper</a>
+<li><a class="el" href="multiboot_8h.html#009f355da41fed4badb8a52d432f5186">multiboot_uint32_t</a> <a class="el" href="structmultiboot__info.html#758aac0c089e4583354024759c9ad59d">boot_device</a>
+<li><a class="el" href="multiboot_8h.html#009f355da41fed4badb8a52d432f5186">multiboot_uint32_t</a> <a class="el" href="structmultiboot__info.html#f7474e72e1196f417c08e3ba2108c481">cmdline</a>
+<li><a class="el" href="multiboot_8h.html#009f355da41fed4badb8a52d432f5186">multiboot_uint32_t</a> <a class="el" href="structmultiboot__info.html#ce0dfe52bc007d3bb3b95a4a1ef3e560">mods_count</a>
+<li><a class="el" href="multiboot_8h.html#009f355da41fed4badb8a52d432f5186">multiboot_uint32_t</a> <a class="el" href="structmultiboot__info.html#3f65a0b43a9c82c2764957707ec1204a">mods_addr</a>
+<li>union {
+<ul>
+<li>&nbsp;&nbsp;&nbsp;multiboot_aout_symbol_table_t &nbsp;&nbsp;&nbsp;<a class="el" href="structmultiboot__info.html#8ca1b8f277abb318da4c5c7684ae9d84">aout_sym</a>
+<li>&nbsp;&nbsp;&nbsp;multiboot_elf_section_header_table_t &nbsp;&nbsp;&nbsp;<a class="el" href="structmultiboot__info.html#500475f6c2e5665c495acd07957fa585">elf_sec</a>
+</ul>
+<li>} <a class="el" href="structmultiboot__info.html#e250d82a7ff635248d8e7bfd2a19559b">u</a>
+<li><a class="el" href="multiboot_8h.html#009f355da41fed4badb8a52d432f5186">multiboot_uint32_t</a> <a class="el" href="structmultiboot__info.html#5062406aefcb70b00567029314e33d21">mmap_length</a>
+<li><a class="el" href="multiboot_8h.html#009f355da41fed4badb8a52d432f5186">multiboot_uint32_t</a> <a class="el" href="structmultiboot__info.html#33b0bf02a449484e179f450ab022f9cc">mmap_addr</a>
+<li><a class="el" href="multiboot_8h.html#009f355da41fed4badb8a52d432f5186">multiboot_uint32_t</a> <a class="el" href="structmultiboot__info.html#e4207625fee5f56d85c35fc522daff07">drives_length</a>
+<li><a class="el" href="multiboot_8h.html#009f355da41fed4badb8a52d432f5186">multiboot_uint32_t</a> <a class="el" href="structmultiboot__info.html#358a0ba0bba7acf62f7e139b314a3bfc">drives_addr</a>
+<li><a class="el" href="multiboot_8h.html#009f355da41fed4badb8a52d432f5186">multiboot_uint32_t</a> <a class="el" href="structmultiboot__info.html#64c479a37bfc2d1a98f8dded8e25c0cd">config_table</a>
+<li><a class="el" href="multiboot_8h.html#009f355da41fed4badb8a52d432f5186">multiboot_uint32_t</a> <a class="el" href="structmultiboot__info.html#60505e4e2cab6b85cfb236bd173637d0">boot_loader_name</a>
+<li><a class="el" href="multiboot_8h.html#009f355da41fed4badb8a52d432f5186">multiboot_uint32_t</a> <a class="el" href="structmultiboot__info.html#fe6b6e1944c8a5811b151533095572d1">apm_table</a>
+<li><a class="el" href="multiboot_8h.html#009f355da41fed4badb8a52d432f5186">multiboot_uint32_t</a> <a class="el" href="structmultiboot__info.html#1d477ccd4123fa288dc883cec7c8c2b0">vbe_control_info</a>
+<li><a class="el" href="multiboot_8h.html#009f355da41fed4badb8a52d432f5186">multiboot_uint32_t</a> <a class="el" href="structmultiboot__info.html#97401ea9e56aa21a0973ee6b33245ddf">vbe_mode_info</a>
+<li><a class="el" href="multiboot_8h.html#3a11e3c2b5e0617736a05343aa5795b3">multiboot_uint16_t</a> <a class="el" href="structmultiboot__info.html#df06c8c7019f539f24c1391a36dea488">vbe_mode</a>
+<li><a class="el" href="multiboot_8h.html#3a11e3c2b5e0617736a05343aa5795b3">multiboot_uint16_t</a> <a class="el" href="structmultiboot__info.html#29e4dd8c7fb36c53cf9283c556709099">vbe_interface_seg</a>
+<li><a class="el" href="multiboot_8h.html#3a11e3c2b5e0617736a05343aa5795b3">multiboot_uint16_t</a> <a class="el" href="structmultiboot__info.html#8d56219eef7f6d1e61508e7db85ec12e">vbe_interface_off</a>
+<li><a class="el" href="multiboot_8h.html#3a11e3c2b5e0617736a05343aa5795b3">multiboot_uint16_t</a> <a class="el" href="structmultiboot__info.html#3b64246fba237bf2600bcd2b3bdc19ff">vbe_interface_len</a>
+</ul>
+<hr><a name="_details"></a><h2>Description détaillée</h2>
+<hr><h2>Documentation des champs</h2>
+<a class="anchor" name="0213694a691d49db53a12075c72dd188"></a><!-- doxytag: member="multiboot_info::flags" ref="0213694a691d49db53a12075c72dd188" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="multiboot_8h.html#009f355da41fed4badb8a52d432f5186">multiboot_uint32_t</a> <a class="el" href="structmultiboot__info.html#0213694a691d49db53a12075c72dd188">flags</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Multiboot info version number 
+</div>
+</div><p>
+<a class="anchor" name="90365badcf368f7cea5a69ce6159db7c"></a><!-- doxytag: member="multiboot_info::mem_lower" ref="90365badcf368f7cea5a69ce6159db7c" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="multiboot_8h.html#009f355da41fed4badb8a52d432f5186">multiboot_uint32_t</a> <a class="el" href="structmultiboot__info.html#90365badcf368f7cea5a69ce6159db7c">mem_lower</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Available memory from BIOS 
+</div>
+</div><p>
+<a class="anchor" name="d1ad87832efda8fcf9e215dff4bd9473"></a><!-- doxytag: member="multiboot_info::mem_upper" ref="d1ad87832efda8fcf9e215dff4bd9473" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="multiboot_8h.html#009f355da41fed4badb8a52d432f5186">multiboot_uint32_t</a> <a class="el" href="structmultiboot__info.html#d1ad87832efda8fcf9e215dff4bd9473">mem_upper</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="758aac0c089e4583354024759c9ad59d"></a><!-- doxytag: member="multiboot_info::boot_device" ref="758aac0c089e4583354024759c9ad59d" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="multiboot_8h.html#009f355da41fed4badb8a52d432f5186">multiboot_uint32_t</a> <a class="el" href="structmultiboot__info.html#758aac0c089e4583354024759c9ad59d">boot_device</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="f7474e72e1196f417c08e3ba2108c481"></a><!-- doxytag: member="multiboot_info::cmdline" ref="f7474e72e1196f417c08e3ba2108c481" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="multiboot_8h.html#009f355da41fed4badb8a52d432f5186">multiboot_uint32_t</a> <a class="el" href="structmultiboot__info.html#f7474e72e1196f417c08e3ba2108c481">cmdline</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Kernel command line 
+</div>
+</div><p>
+<a class="anchor" name="ce0dfe52bc007d3bb3b95a4a1ef3e560"></a><!-- doxytag: member="multiboot_info::mods_count" ref="ce0dfe52bc007d3bb3b95a4a1ef3e560" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="multiboot_8h.html#009f355da41fed4badb8a52d432f5186">multiboot_uint32_t</a> <a class="el" href="structmultiboot__info.html#ce0dfe52bc007d3bb3b95a4a1ef3e560">mods_count</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Boot-Module list 
+</div>
+</div><p>
+<a class="anchor" name="3f65a0b43a9c82c2764957707ec1204a"></a><!-- doxytag: member="multiboot_info::mods_addr" ref="3f65a0b43a9c82c2764957707ec1204a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="multiboot_8h.html#009f355da41fed4badb8a52d432f5186">multiboot_uint32_t</a> <a class="el" href="structmultiboot__info.html#3f65a0b43a9c82c2764957707ec1204a">mods_addr</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="8ca1b8f277abb318da4c5c7684ae9d84"></a><!-- doxytag: member="multiboot_info::aout_sym" ref="8ca1b8f277abb318da4c5c7684ae9d84" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">multiboot_aout_symbol_table_t <a class="el" href="structmultiboot__info.html#8ca1b8f277abb318da4c5c7684ae9d84">aout_sym</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="500475f6c2e5665c495acd07957fa585"></a><!-- doxytag: member="multiboot_info::elf_sec" ref="500475f6c2e5665c495acd07957fa585" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">multiboot_elf_section_header_table_t <a class="el" href="structmultiboot__info.html#500475f6c2e5665c495acd07957fa585">elf_sec</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="e250d82a7ff635248d8e7bfd2a19559b"></a><!-- doxytag: member="multiboot_info::u" ref="e250d82a7ff635248d8e7bfd2a19559b" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">union { ... }   <a class="el" href="structmultiboot__info.html#e250d82a7ff635248d8e7bfd2a19559b">u</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="5062406aefcb70b00567029314e33d21"></a><!-- doxytag: member="multiboot_info::mmap_length" ref="5062406aefcb70b00567029314e33d21" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="multiboot_8h.html#009f355da41fed4badb8a52d432f5186">multiboot_uint32_t</a> <a class="el" href="structmultiboot__info.html#5062406aefcb70b00567029314e33d21">mmap_length</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Memory Mapping buffer 
+</div>
+</div><p>
+<a class="anchor" name="33b0bf02a449484e179f450ab022f9cc"></a><!-- doxytag: member="multiboot_info::mmap_addr" ref="33b0bf02a449484e179f450ab022f9cc" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="multiboot_8h.html#009f355da41fed4badb8a52d432f5186">multiboot_uint32_t</a> <a class="el" href="structmultiboot__info.html#33b0bf02a449484e179f450ab022f9cc">mmap_addr</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="e4207625fee5f56d85c35fc522daff07"></a><!-- doxytag: member="multiboot_info::drives_length" ref="e4207625fee5f56d85c35fc522daff07" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="multiboot_8h.html#009f355da41fed4badb8a52d432f5186">multiboot_uint32_t</a> <a class="el" href="structmultiboot__info.html#e4207625fee5f56d85c35fc522daff07">drives_length</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Drive Info buffer 
+</div>
+</div><p>
+<a class="anchor" name="358a0ba0bba7acf62f7e139b314a3bfc"></a><!-- doxytag: member="multiboot_info::drives_addr" ref="358a0ba0bba7acf62f7e139b314a3bfc" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="multiboot_8h.html#009f355da41fed4badb8a52d432f5186">multiboot_uint32_t</a> <a class="el" href="structmultiboot__info.html#358a0ba0bba7acf62f7e139b314a3bfc">drives_addr</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="64c479a37bfc2d1a98f8dded8e25c0cd"></a><!-- doxytag: member="multiboot_info::config_table" ref="64c479a37bfc2d1a98f8dded8e25c0cd" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="multiboot_8h.html#009f355da41fed4badb8a52d432f5186">multiboot_uint32_t</a> <a class="el" href="structmultiboot__info.html#64c479a37bfc2d1a98f8dded8e25c0cd">config_table</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+ROM configuration table 
+</div>
+</div><p>
+<a class="anchor" name="60505e4e2cab6b85cfb236bd173637d0"></a><!-- doxytag: member="multiboot_info::boot_loader_name" ref="60505e4e2cab6b85cfb236bd173637d0" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="multiboot_8h.html#009f355da41fed4badb8a52d432f5186">multiboot_uint32_t</a> <a class="el" href="structmultiboot__info.html#60505e4e2cab6b85cfb236bd173637d0">boot_loader_name</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Boot Loader Name 
+</div>
+</div><p>
+<a class="anchor" name="fe6b6e1944c8a5811b151533095572d1"></a><!-- doxytag: member="multiboot_info::apm_table" ref="fe6b6e1944c8a5811b151533095572d1" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="multiboot_8h.html#009f355da41fed4badb8a52d432f5186">multiboot_uint32_t</a> <a class="el" href="structmultiboot__info.html#fe6b6e1944c8a5811b151533095572d1">apm_table</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+APM table 
+</div>
+</div><p>
+<a class="anchor" name="1d477ccd4123fa288dc883cec7c8c2b0"></a><!-- doxytag: member="multiboot_info::vbe_control_info" ref="1d477ccd4123fa288dc883cec7c8c2b0" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="multiboot_8h.html#009f355da41fed4badb8a52d432f5186">multiboot_uint32_t</a> <a class="el" href="structmultiboot__info.html#1d477ccd4123fa288dc883cec7c8c2b0">vbe_control_info</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Video 
+</div>
+</div><p>
+<a class="anchor" name="97401ea9e56aa21a0973ee6b33245ddf"></a><!-- doxytag: member="multiboot_info::vbe_mode_info" ref="97401ea9e56aa21a0973ee6b33245ddf" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="multiboot_8h.html#009f355da41fed4badb8a52d432f5186">multiboot_uint32_t</a> <a class="el" href="structmultiboot__info.html#97401ea9e56aa21a0973ee6b33245ddf">vbe_mode_info</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="df06c8c7019f539f24c1391a36dea488"></a><!-- doxytag: member="multiboot_info::vbe_mode" ref="df06c8c7019f539f24c1391a36dea488" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="multiboot_8h.html#3a11e3c2b5e0617736a05343aa5795b3">multiboot_uint16_t</a> <a class="el" href="structmultiboot__info.html#df06c8c7019f539f24c1391a36dea488">vbe_mode</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="29e4dd8c7fb36c53cf9283c556709099"></a><!-- doxytag: member="multiboot_info::vbe_interface_seg" ref="29e4dd8c7fb36c53cf9283c556709099" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="multiboot_8h.html#3a11e3c2b5e0617736a05343aa5795b3">multiboot_uint16_t</a> <a class="el" href="structmultiboot__info.html#29e4dd8c7fb36c53cf9283c556709099">vbe_interface_seg</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="8d56219eef7f6d1e61508e7db85ec12e"></a><!-- doxytag: member="multiboot_info::vbe_interface_off" ref="8d56219eef7f6d1e61508e7db85ec12e" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="multiboot_8h.html#3a11e3c2b5e0617736a05343aa5795b3">multiboot_uint16_t</a> <a class="el" href="structmultiboot__info.html#8d56219eef7f6d1e61508e7db85ec12e">vbe_interface_off</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="3b64246fba237bf2600bcd2b3bdc19ff"></a><!-- doxytag: member="multiboot_info::vbe_interface_len" ref="3b64246fba237bf2600bcd2b3bdc19ff" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="multiboot_8h.html#3a11e3c2b5e0617736a05343aa5795b3">multiboot_uint16_t</a> <a class="el" href="structmultiboot__info.html#3b64246fba237bf2600bcd2b3bdc19ff">vbe_interface_len</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Généré le Fri Aug 27 23:25:44 2010 pour BlenderOS par&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
+</body>
+</html>

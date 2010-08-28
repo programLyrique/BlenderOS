@@ -1,0 +1,265 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>BlenderOS: RÃ©fÃ©rence du fichier screen.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css">
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- GÃ©nÃ©rÃ© par Doxygen 1.5.8 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Page&nbsp;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&nbsp;associÃ©es</span></a></li>
+      <li><a href="annotated.html"><span>Structures&nbsp;de&nbsp;donnÃ©es</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Liste&nbsp;des&nbsp;fichiers</span></a></li>
+      <li><a href="globals.html"><span>PortÃ©e&nbsp;globale</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>RÃ©fÃ©rence du fichier screen.h</h1><h2>Macros</h2>
+<ul>
+<li>#define <a class="el" href="screen_8h.html#75bd6d80644f73b99985a3046e3f39cb">VIDEO_MEM</a>
+<li>#define <a class="el" href="screen_8h.html#06c6c391fc11d106e9909f0401b255b1">COLUMNS</a>
+<li>#define <a class="el" href="screen_8h.html#321ae946de24c36489276616d13c46cd">LINES</a>
+<li>#define <a class="el" href="screen_8h.html#b5de1b155597d372cfa93b5a04652eb9">VIDEO_SIZE</a>
+<li>#define <a class="el" href="screen_8h.html#e93d05732f29bc657ee7bed1f93c3bbe">VIDEOLIM</a>
+<li>#define <a class="el" href="screen_8h.html#9428c0c9e40bbdf5cb3f531370d2be7e">DEFAULT_KATTR</a>
+<li>#define <a class="el" href="screen_8h.html#9ad1b4a1e4f7381611cfd2ae6620a727">TAB_SIZE</a>
+</ul>
+<h2>Fonctions</h2>
+<ul>
+<li>void <a class="el" href="screen_8h.html#4826277cc150ddc0f4de4bd464a34909">cls</a> ()
+<li>void <a class="el" href="screen_8h.html#e02971ddc502228f43d7857104ebed83">scrollup</a> (unsigned int nbLines)
+<li>void <a class="el" href="screen_8h.html#2d43645fefb00e8d189147fa7d18cc2a">putchar</a> (unsigned char c)
+<li>void <a class="el" href="screen_8h.html#f4d83c17f55b855dc40610080cc6de3a">setAttribute</a> (char foreground, char background, char overIntensity, char blink)
+</ul>
+<hr><h2>Documentation des macros</h2>
+<a class="anchor" name="75bd6d80644f73b99985a3046e3f39cb"></a><!-- doxytag: member="screen.h::VIDEO_MEM" ref="75bd6d80644f73b99985a3046e3f39cb" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VIDEO_MEM          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Pilote d'affichage bas niveau. 
+<p>
+<dl compact><dt><b><a class="el" href="todo.html#_todo000002">Ã€ faire:</a></b></dt><dd>utiliser static volatile uchar *video pour situer la position du charactère suivant. </dd></dl>
+Origine de la mémoire vidéo 
+</div>
+</div><p>
+<a class="anchor" name="06c6c391fc11d106e9909f0401b255b1"></a><!-- doxytag: member="screen.h::COLUMNS" ref="06c6c391fc11d106e9909f0401b255b1" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define COLUMNS          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="321ae946de24c36489276616d13c46cd"></a><!-- doxytag: member="screen.h::LINES" ref="321ae946de24c36489276616d13c46cd" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LINES          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="b5de1b155597d372cfa93b5a04652eb9"></a><!-- doxytag: member="screen.h::VIDEO_SIZE" ref="b5de1b155597d372cfa93b5a04652eb9" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VIDEO_SIZE          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="e93d05732f29bc657ee7bed1f93c3bbe"></a><!-- doxytag: member="screen.h::VIDEOLIM" ref="e93d05732f29bc657ee7bed1f93c3bbe" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VIDEOLIM          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="9428c0c9e40bbdf5cb3f531370d2be7e"></a><!-- doxytag: member="screen.h::DEFAULT_KATTR" ref="9428c0c9e40bbdf5cb3f531370d2be7e" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEFAULT_KATTR          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="9ad1b4a1e4f7381611cfd2ae6620a727"></a><!-- doxytag: member="screen.h::TAB_SIZE" ref="9ad1b4a1e4f7381611cfd2ae6620a727" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TAB_SIZE          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<hr><h2>Documentation des fonctions</h2>
+<a class="anchor" name="4826277cc150ddc0f4de4bd464a34909"></a><!-- doxytag: member="screen.h::cls" ref="4826277cc150ddc0f4de4bd464a34909" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cls           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Efface l'écran 
+</div>
+</div><p>
+<a class="anchor" name="e02971ddc502228f43d7857104ebed83"></a><!-- doxytag: member="screen.h::scrollup" ref="e02971ddc502228f43d7857104ebed83" args="(unsigned int nbLines)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void scrollup           </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&nbsp;</td>
+          <td class="paramname"> <em>nbLines</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Abaisse l'affichage de nbLines 
+</div>
+</div><p>
+<a class="anchor" name="2d43645fefb00e8d189147fa7d18cc2a"></a><!-- doxytag: member="screen.h::putchar" ref="2d43645fefb00e8d189147fa7d18cc2a" args="(unsigned char c)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void putchar           </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char&nbsp;</td>
+          <td class="paramname"> <em>c</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Affiche le caractère c à l'écran à la position courante, puis incrémente cette position 
+</div>
+</div><p>
+<a class="anchor" name="f4d83c17f55b855dc40610080cc6de3a"></a><!-- doxytag: member="screen.h::setAttribute" ref="f4d83c17f55b855dc40610080cc6de3a" args="(char foreground, char background, char overIntensity, char blink)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setAttribute           </td>
+          <td>(</td>
+          <td class="paramtype">char&nbsp;</td>
+          <td class="paramname"> <em>foreground</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&nbsp;</td>
+          <td class="paramname"> <em>background</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&nbsp;</td>
+          <td class="paramname"> <em>overIntensity</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&nbsp;</td>
+          <td class="paramname"> <em>blink</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Modifier les attributs d'un charactère : <dl compact><dt><b>ParamÃ¨tres:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>foreground</em>&nbsp;</td><td>couleur de premier plan </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>background</em>&nbsp;</td><td>couleur d'arrière plan </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>overIntensity</em>&nbsp;</td><td>surIntensité </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>blink</em>&nbsp;</td><td>clignotement</td></tr>
+  </table>
+</dl>
+Il convient d'utiliser, pour une meilleure clarté, les couleurs et attributs définis dans <a class="el" href="colors_8h.html">colors.h</a> 
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>GÃ©nÃ©rÃ© le Fri Aug 27 23:25:44 2010 pour BlenderOS par&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>Allocation mmoire: Référence de la structure pmem_header</title>
+<link href="tabs.css" rel="stylesheet" type="text/css">
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Généré par Doxygen 1.5.8 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Page&nbsp;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&nbsp;associées</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Structures&nbsp;de&nbsp;données</span></a></li>
+      <li><a href="files.html"><span>Fichiers</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="annotated.html"><span>Structures&nbsp;de&nbsp;données</span></a></li>
+      <li><a href="classes.html"><span>Index&nbsp;des&nbsp;structures&nbsp;de&nbsp;données</span></a></li>
+      <li><a href="functions.html"><span>Champs&nbsp;de&nbsp;donnée</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Référence de la structure pmem_header</h1><!-- doxytag: class="pmem_header" -->Header décrivant les structures de gestion de la mémoire.  
+<a href="#_details">Plus de détails...</a>
+<p>
+<code>#include &lt;<a class="el" href="pmem_8h-source.html">pmem.h</a>&gt;</code>
+<p>
+<h2>Champs de données</h2>
+<ul>
+<li>unsigned int <a class="el" href="structpmem__header.html#3ea2eb0b002e2ff2543156fd7fc7c469">nbPages</a>
+<dl class="el"><dd class="mdescRight">nombre de pages d'où nombre de blocs  <a href="#3ea2eb0b002e2ff2543156fd7fc7c469"></a><br></dl><li>unsigned int <a class="el" href="structpmem__header.html#16dc38135487c184cff3d68826a7e97f">blockSize</a>
+<dl class="el"><dd class="mdescRight">taille d'un bloc  <a href="#16dc38135487c184cff3d68826a7e97f"></a><br></dl><li>unsigned int <a class="el" href="structpmem__header.html#f2b68df2f19d06b1fe5f5c2fc2023859">nbPagesUsed</a>
+<dl class="el"><dd class="mdescRight">Nombre de pages utilisées .  <a href="#f2b68df2f19d06b1fe5f5c2fc2023859"></a><br></dl><li>unsigned int <a class="el" href="structpmem__header.html#3ecf848dc2154906934de9acd9baba06">binaryHeight</a>
+<dl class="el"><dd class="mdescRight">hauteur de l'arbre binaire  <a href="#3ecf848dc2154906934de9acd9baba06"></a><br></dl><li>unsigned int * <a class="el" href="structpmem__header.html#3931ae58a368124bbf47a5fd45ef55b4">mmap</a>
+<dl class="el"><dd class="mdescRight">Adresse de début de la bitmap, la memory map.  <a href="#3931ae58a368124bbf47a5fd45ef55b4"></a><br></dl><li>unsigned int * <a class="el" href="structpmem__header.html#d287e7a5bc554df90f5fc957869ae6e0">binaryTree</a>
+<dl class="el"><dd class="mdescRight">Adresse du début de l'arbre binaire.  <a href="#d287e7a5bc554df90f5fc957869ae6e0"></a><br></dl><li>unsigned long <a class="el" href="structpmem__header.html#061340dda7c133a821055cef3c4b16ad">firstFreePage</a>
+<dl class="el"><dd class="mdescRight">Décalage en bit vers le dernier bit mis à 1, désignant une page allouée.  <a href="#061340dda7c133a821055cef3c4b16ad"></a><br></dl></ul>
+<hr><a name="_details"></a><h2>Description détaillée</h2>
+Header décrivant les structures de gestion de la mémoire. 
+<p>
+
+<p>Définition à la ligne <a class="el" href="pmem_8h-source.html#l00018">18</a> du fichier <a class="el" href="pmem_8h-source.html">pmem.h</a>.</p>
+<hr><h2>Documentation des champs</h2>
+<a class="anchor" name="3ea2eb0b002e2ff2543156fd7fc7c469"></a><!-- doxytag: member="pmem_header::nbPages" ref="3ea2eb0b002e2ff2543156fd7fc7c469" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int <a class="el" href="structpmem__header.html#3ea2eb0b002e2ff2543156fd7fc7c469">nbPages</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+nombre de pages d'où nombre de blocs 
+<p>
+
+<p>Définition à la ligne <a class="el" href="pmem_8h-source.html#l00021">21</a> du fichier <a class="el" href="pmem_8h-source.html">pmem.h</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="16dc38135487c184cff3d68826a7e97f"></a><!-- doxytag: member="pmem_header::blockSize" ref="16dc38135487c184cff3d68826a7e97f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int <a class="el" href="structpmem__header.html#16dc38135487c184cff3d68826a7e97f">blockSize</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+taille d'un bloc 
+<p>
+
+<p>Définition à la ligne <a class="el" href="pmem_8h-source.html#l00023">23</a> du fichier <a class="el" href="pmem_8h-source.html">pmem.h</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="f2b68df2f19d06b1fe5f5c2fc2023859"></a><!-- doxytag: member="pmem_header::nbPagesUsed" ref="f2b68df2f19d06b1fe5f5c2fc2023859" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int <a class="el" href="structpmem__header.html#f2b68df2f19d06b1fe5f5c2fc2023859">nbPagesUsed</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Nombre de pages utilisées . 
+<p>
+..?... 
+<p>Définition à la ligne <a class="el" href="pmem_8h-source.html#l00025">25</a> du fichier <a class="el" href="pmem_8h-source.html">pmem.h</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="3ecf848dc2154906934de9acd9baba06"></a><!-- doxytag: member="pmem_header::binaryHeight" ref="3ecf848dc2154906934de9acd9baba06" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int <a class="el" href="structpmem__header.html#3ecf848dc2154906934de9acd9baba06">binaryHeight</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+hauteur de l'arbre binaire 
+<p>
+
+<p>Définition à la ligne <a class="el" href="pmem_8h-source.html#l00027">27</a> du fichier <a class="el" href="pmem_8h-source.html">pmem.h</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="3931ae58a368124bbf47a5fd45ef55b4"></a><!-- doxytag: member="pmem_header::mmap" ref="3931ae58a368124bbf47a5fd45ef55b4" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int* <a class="el" href="structpmem__header.html#3931ae58a368124bbf47a5fd45ef55b4">mmap</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Adresse de début de la bitmap, la memory map. 
+<p>
+
+<p>Définition à la ligne <a class="el" href="pmem_8h-source.html#l00029">29</a> du fichier <a class="el" href="pmem_8h-source.html">pmem.h</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="d287e7a5bc554df90f5fc957869ae6e0"></a><!-- doxytag: member="pmem_header::binaryTree" ref="d287e7a5bc554df90f5fc957869ae6e0" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int* <a class="el" href="structpmem__header.html#d287e7a5bc554df90f5fc957869ae6e0">binaryTree</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Adresse du début de l'arbre binaire. 
+<p>
+
+<p>Définition à la ligne <a class="el" href="pmem_8h-source.html#l00031">31</a> du fichier <a class="el" href="pmem_8h-source.html">pmem.h</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="061340dda7c133a821055cef3c4b16ad"></a><!-- doxytag: member="pmem_header::firstFreePage" ref="061340dda7c133a821055cef3c4b16ad" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned long <a class="el" href="structpmem__header.html#061340dda7c133a821055cef3c4b16ad">firstFreePage</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Décalage en bit vers le dernier bit mis à 1, désignant une page allouée. 
+<p>
+
+<p>Définition à la ligne <a class="el" href="pmem_8h-source.html#l00033">33</a> du fichier <a class="el" href="pmem_8h-source.html">pmem.h</a>.</p>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Généré le Thu Aug 5 21:44:46 2010 pour Allocation mmoire par&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
+</body>
+</html>

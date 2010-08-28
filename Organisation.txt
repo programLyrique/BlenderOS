@@ -1,0 +1,75 @@
+Découpage des sources :
+
+- kernel : le code du kernel lui-même (ou kern)
+- hal : hardware abstraction layer (placer hal dans kern ? Fait le 23 Août 2010)
+- drivers : pilotes que le hal va utiliser, sous-répertoires  en correspondance avec le hal
+- architecture (/arch): code très spécifique à une architecture : sous-répertoire selon les architectures
+- utils (ancien algorithms ) : code d'algorithmes et structures de données pouvant être réutilisés
+	contient aussi les fonctions utilisées de la libc
+	comme pour ler kernel , l'intégrer à kernel ? 
+- gui : interface graphique ?? shell ... ou dans userland ? 2D et pixels ?
+- userland : application utilisateurs
+- libc : bibliothèque C pour utilisateurs -> à placer dans userland ?
+- boot : le nécessaire pour le standard multiboot -> supprimer le bootsecteur
+									-> renommer en bootstrap ?
+- support : fichiers nécessaires à la compilation (le fichier du linker par exemple)
+	
+	ajouter un répertoire hwcore pour mettre le code bas niveau (ports i/o, idt...)
+	ou le laisser dans architecture ?
+	-> probablement non !
+
+Remarque : réfléchir au découpage en modules permis par le standard multiboot
+	-> réduire le kernel à un liant des différentes initialisations d'"architecture" et diviser le 
+	répertoire kernel en répertoires selon le module : pmm, scheduler...
+	
+Dans le noyau : petit aperçu chronologique
+	entrée dans un kmain spécifique à l'architecture, puis appel dans kmain aux fonctions
+	d'initialisation du noyau communes
+
+¤ kernel :
+	kernel
+	physical memory management
+	scheduler
+	interruptions et appels système
+
+¤ architecture:
+	
+	# ia32 (i386...) :
+		gdt
+		idt
+		pic ?
+	//ou découpage en dossiers selon les dossiers auxquels correspondent les différentes
+	fonctions spécifiques à l'architecture
+		
+¤ hal :
+	# VFS : virtual file system
+	#character device
+	#block device
+	#systèmes de fichiers
+		sfs ?
+		fat
+		ext2
+	
+	
+¤drivers :
+	#ecran
+		vga
+		svga
+	#clavier
+	#souris
+
+
+¤ algorithms/utils :
+	binary tree
+	list
+	search
+	
+¤ libc : porter newlib
+
+¤boot :
+	boot.asm multiboot et définition de la pile noyau
+	
+	
+On ajoute à cela un répertoire bin où tous les fichiers objets sont placés,
+contenant un répertoire release contenant le noyau, et tous les fichiers formant l'OS.
+Un lien pourra être créé à la racine des sources vers ce dossier ?

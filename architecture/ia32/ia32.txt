@@ -1,0 +1,7 @@
+Etapes d'intialisation sur architecture ia32 : à faire...
+
+- GDT :
+- affichage à l'écran, pilote simple :
+- idt :
+- pic :
+- pagination :

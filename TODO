@@ -1,0 +1,52 @@
+A faire :
+
+Pour voir ce qui  a été réalisé par la suite dans chaque version, se référer aux fichiers 
+de versions
+
+URGENT :
+	- transformer multiboot.asm en multiboot.S et effectuer le changment de syntaxe
+	 Intel -> AT&T
+
+# Version 0.1 : 
+	standard multiboot
+	fonctions d'affichage grossières
+	passage en mode protégé
+	Port d'affichage/débogage de Bochs
+	
+#Version 0.2 :
+	Gestion de la mémoire physique
+	Pagination
+	Interruptions
+	
+#Version 0.3 :
+	Mémoire virtuelle
+	Tâches utilisateurs
+	Multitâche
+	
+#Version 0.4 :
+	Chargement de programmes au format elf
+	Pilotes claviers, écrans (texte seulement) -> chargment de pilotes
+	système de fichier virtuel
+	Shell
+	
+#Version 0.5:
+	Fpu
+	MMX
+	SSE
+	Performance monitoring counters ?
+	
+#Version 0.6:
+	Pilote graphique -> nécessite VM86 
+	VGA; BGA ?
+	VESA
+	
+#Version 0.7 : réseau
+	Pile réseau
+	Ethernet
+	Cartes wifi courantes ou désirées : atheros et realteck...
+	
+#Version 0.8 :
+	standard pci
+	
+#Version 0.9 :
+	standard USB

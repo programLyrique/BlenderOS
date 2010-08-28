@@ -1,0 +1,26 @@
+# depslib dependency file v1.0
+1281035049 source:/home/pierre/OS/BlenderOS/Experimentation/Allocation memoire/main.c
+	<stdio.h>
+	<stdlib.h>
+	"pmem.h"
+
+1281034771 source:/home/pierre/OS/BlenderOS/Experimentation/Allocation memoire/pmem.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utils.h"
+	"pmem.h"
+
+1281034703 /home/pierre/OS/BlenderOS/Experimentation/Allocation memoire/pmem.h
+	"utils.h"
+
+1281026700 /home/pierre/OS/BlenderOS/Experimentation/Allocation memoire/utils.h
+
+1281028036 source:/home/pierre/OS/BlenderOS/Experimentation/Allocation memoire/test.c
+	<stdio.h>
+	<stdlib.h>
+	"utils.h"
+	"test.h"
+
+1281027440 /home/pierre/OS/BlenderOS/Experimentation/Allocation memoire/test.h
+

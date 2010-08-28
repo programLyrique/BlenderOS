@@ -1,0 +1,300 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>BlenderOS: R√©f√©rence du fichier string.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css">
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- G√©n√©r√© par Doxygen 1.5.8 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Page&nbsp;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&nbsp;associ√©es</span></a></li>
+      <li><a href="annotated.html"><span>Structures&nbsp;de&nbsp;donn√©es</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Liste&nbsp;des&nbsp;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Port√©e&nbsp;globale</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>R√©f√©rence du fichier string.c</h1><h2>Macros</h2>
+<ul>
+<li>#define <a class="el" href="string_8c.html#afa77b753631e892f7c125287775c28f">UNALIGNED</a>(X, Y)
+<li>#define <a class="el" href="string_8c.html#3a392d1a0b1863c5bb865b829fe72b45">BIGBLOCKSIZE</a>
+<li>#define <a class="el" href="string_8c.html#f10e78a85c4b7e3d0556ea3b773c3f12">LITTLEBLOCKSIZE</a>
+<li>#define <a class="el" href="string_8c.html#fd8abce6279fa835f39d56bec9dfc4a3">TOO_SMALL</a>(LEN)
+<li>#define <a class="el" href="string_8c.html#8715b762dc403350650021042340ee4b">LBLOCKSIZE</a>
+<li>#define <a class="el" href="string_8c.html#51d21c1ed014569ffcddccf0de7996fd">UNALIGNED2</a>(X)
+</ul>
+<h2>Fonctions</h2>
+<ul>
+<li>void * <a class="el" href="string_8c.html#516db5bee8b4b0233c7ed5075ff8bd47">memcpy</a> (void *dst0, const void *src0, <a class="el" href="ia32__types_8h.html#7c94ea6f8948649f8d181ae55911eeaf">size_t</a> len0)
+<li>void * <a class="el" href="string_8c.html#4a6e5d14cbd0901384519065d2b48ced">memset</a> (void *m, int c, <a class="el" href="ia32__types_8h.html#7c94ea6f8948649f8d181ae55911eeaf">size_t</a> n)
+<li>void <a class="el" href="string_8c.html#8fbba65ba8cf91f584fb9dd9bb37f9cf">itoa</a> (char *buf, unsigned long int n, int base)
+<li><a class="el" href="ia32__types_8h.html#7c94ea6f8948649f8d181ae55911eeaf">size_t</a> <a class="el" href="string_8c.html#a383452fe445bfae989358c9d7d96f4f">strlen</a> (const char *s)
+</ul>
+<hr><h2>Documentation des macros</h2>
+<a class="anchor" name="afa77b753631e892f7c125287775c28f"></a><!-- doxytag: member="string.c::UNALIGNED" ref="afa77b753631e892f7c125287775c28f" args="(X, Y)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UNALIGNED          </td>
+          <td>(</td>
+          <td class="paramtype">X,         <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Y&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="3a392d1a0b1863c5bb865b829fe72b45"></a><!-- doxytag: member="string.c::BIGBLOCKSIZE" ref="3a392d1a0b1863c5bb865b829fe72b45" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BIGBLOCKSIZE          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="f10e78a85c4b7e3d0556ea3b773c3f12"></a><!-- doxytag: member="string.c::LITTLEBLOCKSIZE" ref="f10e78a85c4b7e3d0556ea3b773c3f12" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LITTLEBLOCKSIZE          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="fd8abce6279fa835f39d56bec9dfc4a3"></a><!-- doxytag: member="string.c::TOO_SMALL" ref="fd8abce6279fa835f39d56bec9dfc4a3" args="(LEN)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TOO_SMALL          </td>
+          <td>(</td>
+          <td class="paramtype">LEN&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="8715b762dc403350650021042340ee4b"></a><!-- doxytag: member="string.c::LBLOCKSIZE" ref="8715b762dc403350650021042340ee4b" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LBLOCKSIZE          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="51d21c1ed014569ffcddccf0de7996fd"></a><!-- doxytag: member="string.c::UNALIGNED2" ref="51d21c1ed014569ffcddccf0de7996fd" args="(X)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UNALIGNED2          </td>
+          <td>(</td>
+          <td class="paramtype">X&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<hr><h2>Documentation des fonctions</h2>
+<a class="anchor" name="516db5bee8b4b0233c7ed5075ff8bd47"></a><!-- doxytag: member="string.c::memcpy" ref="516db5bee8b4b0233c7ed5075ff8bd47" args="(void *dst0, const void *src0, size_t len0)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* memcpy           </td>
+          <td>(</td>
+          <td class="paramtype">void *&nbsp;</td>
+          <td class="paramname"> <em>dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *&nbsp;</td>
+          <td class="paramname"> <em>src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="ia32__types_8h.html#7c94ea6f8948649f8d181ae55911eeaf">size_t</a>&nbsp;</td>
+          <td class="paramname"> <em>n</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Copie n octets de src vers dest<p>
+L'implÈmentation est tirÈe de la newlib. <dl compact><dt><b><a class="el" href="todo.html#_todo000008">√Ä faire:</a></b></dt><dd>a optimiser en copiant plusieurs octets ‡ la suite </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="4a6e5d14cbd0901384519065d2b48ced"></a><!-- doxytag: member="string.c::memset" ref="4a6e5d14cbd0901384519065d2b48ced" args="(void *m, int c, size_t n)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* memset           </td>
+          <td>(</td>
+          <td class="paramtype">void *&nbsp;</td>
+          <td class="paramname"> <em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="ia32__types_8h.html#7c94ea6f8948649f8d181ae55911eeaf">size_t</a>&nbsp;</td>
+          <td class="paramname"> <em>n</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Initialise une zone<p>
+L'implÈmentation est tirÈe de la newlib <dl compact><dt><b>Param√®tres:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>s</em>&nbsp;</td><td>zone ‡ initialiser </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>c</em>&nbsp;</td><td>initialisateur </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>taille</em>&nbsp;</td><td>de la zone </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="8fbba65ba8cf91f584fb9dd9bb37f9cf"></a><!-- doxytag: member="string.c::itoa" ref="8fbba65ba8cf91f584fb9dd9bb37f9cf" args="(char *buf, unsigned long int n, int base)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void itoa           </td>
+          <td>(</td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>buf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned long int&nbsp;</td>
+          <td class="paramname"> <em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>base</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Convertit un entier en chaine de charactËres <dl compact><dt><b>Param√®tres:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>buf</em>&nbsp;</td><td>le buffer de destination </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>base</em>&nbsp;</td><td>la base :<ul>
+<li>'d' Èquivaut ‡ dÈcimal</li><li>'x' Èquivaut ‡ hexadÈcimal </li></ul>
+</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>n</em>&nbsp;</td><td>entier ‡ convertir </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="a383452fe445bfae989358c9d7d96f4f"></a><!-- doxytag: member="string.c::strlen" ref="a383452fe445bfae989358c9d7d96f4f" args="(const char *s)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="ia32__types_8h.html#7c94ea6f8948649f8d181ae55911eeaf">size_t</a> strlen           </td>
+          <td>(</td>
+          <td class="paramtype">const char *&nbsp;</td>
+          <td class="paramname"> <em>s</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Retourne la longueur d'une chaine C 
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>G√©n√©r√© le Fri Aug 27 23:25:44 2010 pour BlenderOS par&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
+</body>
+</html>

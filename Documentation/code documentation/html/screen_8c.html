@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>BlenderOS: R√©f√©rence du fichier screen.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css">
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- G√©n√©r√© par Doxygen 1.5.8 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Page&nbsp;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&nbsp;associ√©es</span></a></li>
+      <li><a href="annotated.html"><span>Structures&nbsp;de&nbsp;donn√©es</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Liste&nbsp;des&nbsp;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Port√©e&nbsp;globale</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>R√©f√©rence du fichier screen.c</h1><h2>Fonctions</h2>
+<ul>
+<li>void <a class="el" href="screen_8c.html#e5f15506155750b79c8ceb1d9e86d34c">cls</a> (void)
+<li>void <a class="el" href="screen_8c.html#e02971ddc502228f43d7857104ebed83">scrollup</a> (unsigned int nbLines)
+<li>void <a class="el" href="screen_8c.html#2d43645fefb00e8d189147fa7d18cc2a">putchar</a> (unsigned char c)
+<li>void <a class="el" href="screen_8c.html#f4d83c17f55b855dc40610080cc6de3a">setAttribute</a> (char foreground, char background, char overIntensity, char blink)
+</ul>
+<hr><h2>Documentation des fonctions</h2>
+<a class="anchor" name="e5f15506155750b79c8ceb1d9e86d34c"></a><!-- doxytag: member="screen.c::cls" ref="e5f15506155750b79c8ceb1d9e86d34c" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cls           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Efface l'Ècran 
+</div>
+</div><p>
+<a class="anchor" name="e02971ddc502228f43d7857104ebed83"></a><!-- doxytag: member="screen.c::scrollup" ref="e02971ddc502228f43d7857104ebed83" args="(unsigned int nbLines)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void scrollup           </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&nbsp;</td>
+          <td class="paramname"> <em>nbLines</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Abaisse l'affichage de nbLines 
+</div>
+</div><p>
+<a class="anchor" name="2d43645fefb00e8d189147fa7d18cc2a"></a><!-- doxytag: member="screen.c::putchar" ref="2d43645fefb00e8d189147fa7d18cc2a" args="(unsigned char c)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void putchar           </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char&nbsp;</td>
+          <td class="paramname"> <em>c</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Affiche le caractËre c ‡ l'Ècran ‡ la position courante, puis incrÈmente cette position 
+</div>
+</div><p>
+<a class="anchor" name="f4d83c17f55b855dc40610080cc6de3a"></a><!-- doxytag: member="screen.c::setAttribute" ref="f4d83c17f55b855dc40610080cc6de3a" args="(char foreground, char background, char overIntensity, char blink)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setAttribute           </td>
+          <td>(</td>
+          <td class="paramtype">char&nbsp;</td>
+          <td class="paramname"> <em>foreground</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&nbsp;</td>
+          <td class="paramname"> <em>background</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&nbsp;</td>
+          <td class="paramname"> <em>overIntensity</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&nbsp;</td>
+          <td class="paramname"> <em>blink</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Modifier les attributs d'un charactËre : <dl compact><dt><b>Param√®tres:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>foreground</em>&nbsp;</td><td>couleur de premier plan </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>background</em>&nbsp;</td><td>couleur d'arriËre plan </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>overIntensity</em>&nbsp;</td><td>surIntensitÈ </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>blink</em>&nbsp;</td><td>clignotement</td></tr>
+  </table>
+</dl>
+Il convient d'utiliser, pour une meilleure clartÈ, les couleurs et attributs dÈfinis dans <a class="el" href="colors_8h.html">colors.h</a> 
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>G√©n√©r√© le Fri Aug 27 23:25:44 2010 pour BlenderOS par&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
+</body>
+</html>

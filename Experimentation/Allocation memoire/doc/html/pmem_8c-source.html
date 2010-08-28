@@ -1,0 +1,184 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>Allocation mmoire:  Fichier source de pmem.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css">
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Généré par Doxygen 1.5.8 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Page&nbsp;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&nbsp;associées</span></a></li>
+      <li><a href="annotated.html"><span>Structures&nbsp;de&nbsp;données</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Liste&nbsp;des&nbsp;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Portée&nbsp;globale</span></a></li>
+    </ul>
+  </div>
+<h1>pmem.c</h1><a href="pmem_8c.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &lt;stdio.h&gt;</span>
+<a name="l00002"></a>00002 <span class="preprocessor">#include &lt;stdlib.h&gt;</span>
+<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;string.h&gt;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include "<a class="code" href="utils_8h.html">utils.h</a>"</span>
+<a name="l00005"></a>00005 
+<a name="l00006"></a>00006 
+<a name="l00007"></a>00007 <span class="preprocessor">#include "<a class="code" href="pmem_8h.html" title="Définition du gestionnaire de mémoire physique.">pmem.h</a>"</span>
+<a name="l00008"></a>00008 
+<a name="l00009"></a><a class="code" href="pmem_8h.html#46f32f6e351d9d57bff39ede2499c599">00009</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="pmem_8c.html#46f32f6e351d9d57bff39ede2499c599" title="marque une page comme utilisée">mmap_set</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> bit)
+<a name="l00010"></a>00010 {
+<a name="l00011"></a>00011     <a class="code" href="pmem_8h.html#75dfea065d9f92402756bf5c80de8a13" title="L&amp;#39;adresse de début des structures de gestion de la mémoire physique.">header</a>-&gt;<a class="code" href="structpmem__header.html#3931ae58a368124bbf47a5fd45ef55b4" title="Adresse de début de la bitmap, la memory map.">mmap</a>[bit / 32] |= (1 &lt;&lt; (bit % 32));
+<a name="l00012"></a>00012 }
+<a name="l00013"></a><a class="code" href="pmem_8h.html#21db1020939cc0de4afeafc50a1291bb">00013</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="pmem_8c.html#21db1020939cc0de4afeafc50a1291bb" title="marque une page comme non utilisée">mmap_unset</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> bit)
+<a name="l00014"></a>00014 {
+<a name="l00015"></a>00015     <a class="code" href="pmem_8h.html#75dfea065d9f92402756bf5c80de8a13" title="L&amp;#39;adresse de début des structures de gestion de la mémoire physique.">header</a>-&gt;<a class="code" href="structpmem__header.html#3931ae58a368124bbf47a5fd45ef55b4" title="Adresse de début de la bitmap, la memory map.">mmap</a>[bit / 32] &amp;= (1 &lt;&lt; (bit % 32));
+<a name="l00016"></a>00016 }
+<a name="l00017"></a><a class="code" href="pmem_8h.html#9ff0fdcf9ff9a7a7eab4f4c847396a01">00017</a> <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="pmem_8c.html#9ff0fdcf9ff9a7a7eab4f4c847396a01" title="Teste si la page au bit demandé est libre.">mmap_test</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> bit)
+<a name="l00018"></a>00018 {
+<a name="l00019"></a>00019     <span class="keywordflow">return</span> <a class="code" href="pmem_8h.html#75dfea065d9f92402756bf5c80de8a13" title="L&amp;#39;adresse de début des structures de gestion de la mémoire physique.">header</a>-&gt;<a class="code" href="structpmem__header.html#3931ae58a368124bbf47a5fd45ef55b4" title="Adresse de début de la bitmap, la memory map.">mmap</a>[bit/32] &amp;  (1 &lt;&lt; (bit % 32));
+<a name="l00020"></a>00020 }
+<a name="l00021"></a>00021 <span class="comment">//A mettre en inline ?</span>
+<a name="l00022"></a><a class="code" href="pmem_8h.html#fc7ca1eea6ea2b18777355203a85315c">00022</a> <span class="keywordtype">int</span> <a class="code" href="pmem_8c.html#fc7ca1eea6ea2b18777355203a85315c" title="Recherche la première page de libre.">mmap_first_free</a> ()
+<a name="l00023"></a>00023 {
+<a name="l00024"></a>00024     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0, j=0;
+<a name="l00025"></a>00025  <span class="keywordflow">for</span> (; i&lt; <a class="code" href="pmem_8h.html#75dfea065d9f92402756bf5c80de8a13" title="L&amp;#39;adresse de début des structures de gestion de la mémoire physique.">header</a>-&gt;<a class="code" href="structpmem__header.html#3ea2eb0b002e2ff2543156fd7fc7c469" title="nombre de pages d&amp;#39;où nombre de blocs">nbPages</a> / 32; i++)
+<a name="l00026"></a>00026   <span class="keywordflow">if</span> (<a class="code" href="pmem_8h.html#75dfea065d9f92402756bf5c80de8a13" title="L&amp;#39;adresse de début des structures de gestion de la mémoire physique.">header</a>-&gt;<a class="code" href="structpmem__header.html#3931ae58a368124bbf47a5fd45ef55b4" title="Adresse de début de la bitmap, la memory map.">mmap</a>[i] != 0xffffffff)
+<a name="l00027"></a>00027    <span class="keywordflow">for</span> (j=0; j&lt;32; j++)
+<a name="l00028"></a>00028    {
+<a name="l00029"></a>00029 
+<a name="l00030"></a>00030     <span class="keywordtype">int</span> bit = 1 &lt;&lt; j;
+<a name="l00031"></a>00031     <span class="keywordflow">if</span> (! (<a class="code" href="pmem_8h.html#75dfea065d9f92402756bf5c80de8a13" title="L&amp;#39;adresse de début des structures de gestion de la mémoire physique.">header</a>-&gt;<a class="code" href="structpmem__header.html#3931ae58a368124bbf47a5fd45ef55b4" title="Adresse de début de la bitmap, la memory map.">mmap</a>[i] &amp; bit) )
+<a name="l00032"></a>00032      <span class="keywordflow">return</span> i*32+j;
+<a name="l00033"></a>00033    }
+<a name="l00034"></a>00034 
+<a name="l00035"></a>00035  <span class="keywordflow">return</span> -1;
+<a name="l00036"></a>00036 }
+<a name="l00037"></a>00037 
+<a name="l00038"></a><a class="code" href="pmem_8h.html#70085b736e8038b104816e9d68ad1a65">00038</a> <span class="keywordtype">void</span> <a class="code" href="pmem_8c.html#70085b736e8038b104816e9d68ad1a65" title="Marque une région comme utilisée.">pmem_set_region</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> baseAddr, <span class="keywordtype">size_t</span> taille)
+<a name="l00039"></a>00039 {
+<a name="l00040"></a>00040     <span class="keywordtype">int</span> align = baseAddr / <a class="code" href="pmem_8h.html#7d467c1d283fdfa1f2081ba1e0d01b6e">PAGE_SIZE</a>;
+<a name="l00041"></a>00041  <span class="keywordtype">int</span> blocks = taille / <a class="code" href="pmem_8h.html#7d467c1d283fdfa1f2081ba1e0d01b6e">PAGE_SIZE</a>;
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043  <span class="keywordflow">for</span> (; blocks&gt;0; blocks--) {
+<a name="l00044"></a>00044   <a class="code" href="pmem_8c.html#46f32f6e351d9d57bff39ede2499c599" title="marque une page comme utilisée">mmap_set</a> (align++);
+<a name="l00045"></a>00045   <a class="code" href="pmem_8h.html#75dfea065d9f92402756bf5c80de8a13" title="L&amp;#39;adresse de début des structures de gestion de la mémoire physique.">header</a>-&gt;<a class="code" href="structpmem__header.html#f2b68df2f19d06b1fe5f5c2fc2023859" title="Nombre de pages utilisées .">nbPagesUsed</a>++;
+<a name="l00046"></a>00046  }
+<a name="l00047"></a>00047  <a class="code" href="pmem_8c.html#46f32f6e351d9d57bff39ede2499c599" title="marque une page comme utilisée">mmap_set</a>(align);
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049     <span class="comment">/*unsigned int i=0;</span>
+<a name="l00050"></a>00050 <span class="comment">    for(;i &lt; taille;i++)</span>
+<a name="l00051"></a>00051 <span class="comment">    {</span>
+<a name="l00052"></a>00052 <span class="comment">        mmap_set(baseAddr+i);//Impl�mentation absolument pas performante.</span>
+<a name="l00053"></a>00053 <span class="comment">        header-&gt;nbPagesUsed++;</span>
+<a name="l00054"></a>00054 <span class="comment">    }*/</span>
+<a name="l00055"></a>00055     <span class="comment">/*int align = baseAddr &gt;&gt; 5 ;//Adresse de base align�e sur 32 bits en mots</span>
+<a name="l00056"></a>00056 <span class="comment">    int begin = taille - baseAddr +  align;//On obtient les permier bits</span>
+<a name="l00057"></a>00057 <span class="comment">    int middle = (taille-begin) &gt;&gt; 5;//On obtient le nombre de mots</span>
+<a name="l00058"></a>00058 <span class="comment">    int end = taille - middle;//On obtient le nombre restant de bits</span>
+<a name="l00059"></a>00059 <span class="comment">    int i=0;</span>
+<a name="l00060"></a>00060 <span class="comment">    for(;i&lt; begin;i++)</span>
+<a name="l00061"></a>00061 <span class="comment">    {</span>
+<a name="l00062"></a>00062 <span class="comment">        mmap_set(baseAddr+i);</span>
+<a name="l00063"></a>00063 <span class="comment">        header-&gt;nbPagesUsed++;</span>
+<a name="l00064"></a>00064 <span class="comment">        printf("\tbegin");</span>
+<a name="l00065"></a>00065 <span class="comment">    }</span>
+<a name="l00066"></a>00066 <span class="comment">    for(i=align;i &lt; middle;i++)</span>
+<a name="l00067"></a>00067 <span class="comment">    {</span>
+<a name="l00068"></a>00068 <span class="comment">        header-&gt;mmap[align+i]=0xffffffff;</span>
+<a name="l00069"></a>00069 <span class="comment">        printf("\tmiddle");</span>
+<a name="l00070"></a>00070 <span class="comment">        header-&gt;nbPagesUsed+=32;</span>
+<a name="l00071"></a>00071 <span class="comment">    }</span>
+<a name="l00072"></a>00072 <span class="comment">    for(i=0;i &lt; end;i++)</span>
+<a name="l00073"></a>00073 <span class="comment">    {</span>
+<a name="l00074"></a>00074 <span class="comment">        mmap_set(baseAddr+middle*32+i);</span>
+<a name="l00075"></a>00075 <span class="comment">        header-&gt;nbPagesUsed++;</span>
+<a name="l00076"></a>00076 <span class="comment">        printf("\tend");</span>
+<a name="l00077"></a>00077 <span class="comment">    }</span>
+<a name="l00078"></a>00078 <span class="comment">    //ajouter des tests de non d�passement de la m�moire</span>
+<a name="l00079"></a>00079 <span class="comment">    printf("\nBegin : %d, Middle : %d End : %d . Taille calculee :%d", begin, middle, end, begin + middle*32+end);*/</span>
+<a name="l00080"></a>00080 }
+<a name="l00081"></a><a class="code" href="pmem_8h.html#2bae5e50b780369741ab3e56330fae92">00081</a> <span class="keywordtype">void</span> <a class="code" href="pmem_8c.html#2bae5e50b780369741ab3e56330fae92" title="Marque une région de la mémoire physique, une suite de pages, comme inutilisée...">pmem_unset_region</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> baseAddr, <span class="keywordtype">size_t</span> taille)
+<a name="l00082"></a>00082 {
+<a name="l00083"></a>00083 
+<a name="l00084"></a>00084 }
+<a name="l00085"></a><a class="code" href="pmem_8h.html#fb0167e49a57b53d9729abf45c149878">00085</a> <span class="keywordtype">int</span> <a class="code" href="pmem_8c.html#fb0167e49a57b53d9729abf45c149878" title="Prépare le gestionnaire de mémoire physique.">pmem_init</a>(<span class="keywordtype">void</span> *addr, <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> tailleMem, <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> taillePage)
+<a name="l00086"></a>00086 {
+<a name="l00087"></a>00087     <a class="code" href="pmem_8h.html#75dfea065d9f92402756bf5c80de8a13" title="L&amp;#39;adresse de début des structures de gestion de la mémoire physique.">header</a> = addr;
+<a name="l00088"></a>00088     <a class="code" href="pmem_8h.html#75dfea065d9f92402756bf5c80de8a13" title="L&amp;#39;adresse de début des structures de gestion de la mémoire physique.">header</a>-&gt;<a class="code" href="structpmem__header.html#3ea2eb0b002e2ff2543156fd7fc7c469" title="nombre de pages d&amp;#39;où nombre de blocs">nbPages</a> = tailleMem/taillePage;
+<a name="l00089"></a>00089     <a class="code" href="pmem_8h.html#75dfea065d9f92402756bf5c80de8a13" title="L&amp;#39;adresse de début des structures de gestion de la mémoire physique.">header</a>-&gt;<a class="code" href="structpmem__header.html#16dc38135487c184cff3d68826a7e97f" title="taille d&amp;#39;un bloc">blockSize</a>=0;
+<a name="l00090"></a>00090     <a class="code" href="pmem_8h.html#75dfea065d9f92402756bf5c80de8a13" title="L&amp;#39;adresse de début des structures de gestion de la mémoire physique.">header</a>-&gt;<a class="code" href="structpmem__header.html#f2b68df2f19d06b1fe5f5c2fc2023859" title="Nombre de pages utilisées .">nbPagesUsed</a>=0;
+<a name="l00091"></a>00091     <a class="code" href="pmem_8h.html#75dfea065d9f92402756bf5c80de8a13" title="L&amp;#39;adresse de début des structures de gestion de la mémoire physique.">header</a>-&gt;<a class="code" href="structpmem__header.html#3ecf848dc2154906934de9acd9baba06" title="hauteur de l&amp;#39;arbre binaire">binaryHeight</a>=0;
+<a name="l00092"></a>00092     <a class="code" href="pmem_8h.html#75dfea065d9f92402756bf5c80de8a13" title="L&amp;#39;adresse de début des structures de gestion de la mémoire physique.">header</a>-&gt;<a class="code" href="structpmem__header.html#d287e7a5bc554df90f5fc957869ae6e0" title="Adresse du début de l&amp;#39;arbre binaire.">binaryTree</a>=NULL;
+<a name="l00093"></a>00093     <a class="code" href="pmem_8h.html#75dfea065d9f92402756bf5c80de8a13" title="L&amp;#39;adresse de début des structures de gestion de la mémoire physique.">header</a>-&gt;<a class="code" href="structpmem__header.html#061340dda7c133a821055cef3c4b16ad" title="Décalage en bit vers le dernier bit mis à 1, désignant une page allouée.">firstFreePage</a>=0;
+<a name="l00094"></a>00094 
+<a name="l00095"></a>00095     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> tailleHeader=<span class="keyword">sizeof</span>(<a class="code" href="structpmem__header.html" title="Header décrivant les structures de gestion de la mémoire.">pmem_header</a>);
+<a name="l00096"></a>00096     printf(<span class="stringliteral">"\nTaille du header : %d"</span>, tailleHeader);
+<a name="l00097"></a>00097     <span class="comment">/*</span>
+<a name="l00098"></a>00098 <span class="comment">        On alloue la bitmap apr�s le heaader, en veillant � l'aligner sur 32 bits (en 32 bits)</span>
+<a name="l00099"></a>00099 <span class="comment">        � adapter de fa�on g�n�rique (modulo...)</span>
+<a name="l00100"></a>00100 <span class="comment">        On cast le pointeur sur pm_header</span>
+<a name="l00101"></a>00101 <span class="comment">    */</span>
+<a name="l00102"></a>00102     <a class="code" href="pmem_8h.html#75dfea065d9f92402756bf5c80de8a13" title="L&amp;#39;adresse de début des structures de gestion de la mémoire physique.">header</a>-&gt;<a class="code" href="structpmem__header.html#3931ae58a368124bbf47a5fd45ef55b4" title="Adresse de début de la bitmap, la memory map.">mmap</a> = (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> *) (<a class="code" href="pmem_8h.html#75dfea065d9f92402756bf5c80de8a13" title="L&amp;#39;adresse de début des structures de gestion de la mémoire physique.">header</a>+tailleHeader+(2*tailleHeader-32));
+<a name="l00103"></a>00103     <span class="keywordflow">if</span>(!<a class="code" href="pmem_8c.html#fd973407223b10bae25a48caeedbc81f" title="Alloue et initialise la bitmap.">init_mmap</a>())
+<a name="l00104"></a>00104         <span class="keywordflow">return</span> 0;
+<a name="l00105"></a>00105     <span class="keywordflow">return</span> 1;
+<a name="l00106"></a>00106 }
+<a name="l00107"></a>00107 
+<a name="l00108"></a><a class="code" href="pmem_8h.html#fd973407223b10bae25a48caeedbc81f">00108</a> <span class="keywordtype">int</span> <a class="code" href="pmem_8c.html#fd973407223b10bae25a48caeedbc81f" title="Alloue et initialise la bitmap.">init_mmap</a>()
+<a name="l00109"></a>00109 {
+<a name="l00110"></a>00110     <span class="comment">//invent�, mais devra tenir compte de la memory map pass�� par Grub</span>
+<a name="l00111"></a>00111     <a class="code" href="pmem_8c.html#70085b736e8038b104816e9d68ad1a65" title="Marque une région comme utilisée.">pmem_set_region</a>(0, <a class="code" href="pmem_8h.html#7d467c1d283fdfa1f2081ba1e0d01b6e">PAGE_SIZE</a>*10);
+<a name="l00112"></a>00112     <span class="comment">//pmem_set_region(PAGE_SIZE*50, 50*PAGE_SIZE);</span>
+<a name="l00113"></a>00113     <span class="keywordflow">return</span> 1;
+<a name="l00114"></a>00114 }
+<a name="l00115"></a>00115 
+<a name="l00116"></a><a class="code" href="pmem_8c.html#7600e4e9c0f1f9500e7ec477c5b182db">00116</a> <span class="keywordtype">void</span> <a class="code" href="pmem_8c.html#7600e4e9c0f1f9500e7ec477c5b182db">print_mmap</a>()
+<a name="l00117"></a>00117 {
+<a name="l00118"></a>00118     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0, begin=0, end=0, suite=0;
+<a name="l00119"></a>00119     printf(<span class="stringliteral">"\n|"</span>);
+<a name="l00120"></a>00120     <span class="keywordflow">for</span>(i=0; i &lt; <a class="code" href="pmem_8h.html#75dfea065d9f92402756bf5c80de8a13" title="L&amp;#39;adresse de début des structures de gestion de la mémoire physique.">header</a>-&gt;<a class="code" href="structpmem__header.html#3ea2eb0b002e2ff2543156fd7fc7c469" title="nombre de pages d&amp;#39;où nombre de blocs">nbPages</a>;i++)
+<a name="l00121"></a>00121     {
+<a name="l00122"></a>00122         <span class="keywordflow">if</span>(<a class="code" href="pmem_8c.html#9ff0fdcf9ff9a7a7eab4f4c847396a01" title="Teste si la page au bit demandé est libre.">mmap_test</a>(i))
+<a name="l00123"></a>00123             putchar(<span class="charliteral">'�'</span>);
+<a name="l00124"></a>00124         <span class="keywordflow">else</span>
+<a name="l00125"></a>00125             putchar(<span class="charliteral">'-'</span>);
+<a name="l00126"></a>00126     }
+<a name="l00127"></a>00127     putchar(<span class="charliteral">'|'</span>);
+<a name="l00128"></a>00128     putchar(<span class="charliteral">'\n'</span>);
+<a name="l00129"></a>00129     <span class="keywordflow">for</span>(i=0;i &lt; <a class="code" href="pmem_8h.html#75dfea065d9f92402756bf5c80de8a13" title="L&amp;#39;adresse de début des structures de gestion de la mémoire physique.">header</a>-&gt;<a class="code" href="structpmem__header.html#3ea2eb0b002e2ff2543156fd7fc7c469" title="nombre de pages d&amp;#39;où nombre de blocs">nbPages</a>/32;i++)
+<a name="l00130"></a>00130     {
+<a name="l00131"></a>00131         printf(<span class="stringliteral">"%x|"</span>, <a class="code" href="pmem_8h.html#75dfea065d9f92402756bf5c80de8a13" title="L&amp;#39;adresse de début des structures de gestion de la mémoire physique.">header</a>-&gt;<a class="code" href="structpmem__header.html#3931ae58a368124bbf47a5fd45ef55b4" title="Adresse de début de la bitmap, la memory map.">mmap</a>[i]);
+<a name="l00132"></a>00132     }
+<a name="l00133"></a>00133     <span class="comment">//Afficher un texte</span>
+<a name="l00134"></a>00134     printf(<span class="stringliteral">"\nAlloue : "</span>);
+<a name="l00135"></a>00135     <span class="keywordflow">for</span>(i=0;i &lt; <a class="code" href="pmem_8h.html#75dfea065d9f92402756bf5c80de8a13" title="L&amp;#39;adresse de début des structures de gestion de la mémoire physique.">header</a>-&gt;<a class="code" href="structpmem__header.html#3ea2eb0b002e2ff2543156fd7fc7c469" title="nombre de pages d&amp;#39;où nombre de blocs">nbPages</a>;i++)
+<a name="l00136"></a>00136     {
+<a name="l00137"></a>00137         <span class="keywordtype">int</span> test =<a class="code" href="pmem_8c.html#9ff0fdcf9ff9a7a7eab4f4c847396a01" title="Teste si la page au bit demandé est libre.">mmap_test</a>(i);
+<a name="l00138"></a>00138         <span class="keywordflow">if</span>(test &amp;&amp; suite)<span class="comment">//on est dans une suite de m�moire allou�e</span>
+<a name="l00139"></a>00139         {
+<a name="l00140"></a>00140             end++;
+<a name="l00141"></a>00141         }
+<a name="l00142"></a>00142         <span class="keywordflow">else</span> <span class="keywordflow">if</span>(suite)<span class="comment">//on est arrive � la fin d'une suite de bloc allou�e</span>
+<a name="l00143"></a>00143         {
+<a name="l00144"></a>00144             printf(<span class="stringliteral">" [%d - %d] "</span>, begin, end);
+<a name="l00145"></a>00145             suite=0;
+<a name="l00146"></a>00146         }
+<a name="l00147"></a>00147         <span class="keywordflow">else</span> <span class="keywordflow">if</span>(test)<span class="comment">//C'est le d�but d'une suite de bloc allou�e</span>
+<a name="l00148"></a>00148         {
+<a name="l00149"></a>00149             begin=i;
+<a name="l00150"></a>00150             end=begin;
+<a name="l00151"></a>00151             suite=1;
+<a name="l00152"></a>00152         }
+<a name="l00153"></a>00153     }
+<a name="l00154"></a>00154     printf(<span class="stringliteral">"\nPages utilis�es: %d"</span>, <a class="code" href="pmem_8h.html#75dfea065d9f92402756bf5c80de8a13" title="L&amp;#39;adresse de début des structures de gestion de la mémoire physique.">header</a>-&gt;<a class="code" href="structpmem__header.html#f2b68df2f19d06b1fe5f5c2fc2023859" title="Nombre de pages utilisées .">nbPagesUsed</a>);
+<a name="l00155"></a>00155 
+<a name="l00156"></a>00156 }
+</pre></div></div>
+<hr size="1"><address style="text-align: right;"><small>Généré le Thu Aug 5 21:44:46 2010 pour Allocation mmoire par&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
+</body>
+</html>

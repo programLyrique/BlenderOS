@@ -1,0 +1,4 @@
+Le secteur de boot qui est fourni ici ne doit pas être utilisé.
+Il ne pourra pas charger tout le noyau. 
+Utiliser plutôt un chargeur tel que Grub, avec le standard multiboot.
+L'assembleur utilisé ici est nasm.

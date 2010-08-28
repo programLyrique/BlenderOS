@@ -1,0 +1,385 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>Allocation mmoire: Référence du fichier pmem.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css">
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Généré par Doxygen 1.5.8 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Page&nbsp;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&nbsp;associées</span></a></li>
+      <li><a href="annotated.html"><span>Structures&nbsp;de&nbsp;données</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Liste&nbsp;des&nbsp;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Portée&nbsp;globale</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Référence du fichier pmem.h</h1>Définition du gestionnaire de mémoire physique.  
+<a href="#_details">Plus de détails...</a>
+<p>
+
+<p>
+<a href="pmem_8h-source.html">Aller au code source de ce fichier.</a><h2>Structures de données</h2>
+<ul>
+<li>struct <a class="el" href="structpmem__header.html">pmem_header</a>
+<dl class="el"><dd class="mdescRight">Header décrivant les structures de gestion de la mémoire.  <a href="structpmem__header.html#_details">Plus de détails...</a><br></dl></ul>
+<h2>Macros</h2>
+<ul>
+<li>#define <a class="el" href="pmem_8h.html#7d467c1d283fdfa1f2081ba1e0d01b6e">PAGE_SIZE</a>
+</ul>
+<h2>Fonctions</h2>
+<ul>
+<li>void <a class="el" href="pmem_8h.html#46f32f6e351d9d57bff39ede2499c599">mmap_set</a> (unsigned int bit)
+<dl class="el"><dd class="mdescRight">marque une page comme utilisée  <a href="#46f32f6e351d9d57bff39ede2499c599"></a><br></dl><li>void <a class="el" href="pmem_8h.html#21db1020939cc0de4afeafc50a1291bb">mmap_unset</a> (unsigned int bit)
+<dl class="el"><dd class="mdescRight">marque une page comme non utilisée  <a href="#21db1020939cc0de4afeafc50a1291bb"></a><br></dl><li>bool <a class="el" href="pmem_8h.html#9ff0fdcf9ff9a7a7eab4f4c847396a01">mmap_test</a> (unsigned int bit)
+<dl class="el"><dd class="mdescRight">Teste si la page au bit demandé est libre.  <a href="#9ff0fdcf9ff9a7a7eab4f4c847396a01"></a><br></dl><li>int <a class="el" href="pmem_8h.html#fc7ca1eea6ea2b18777355203a85315c">mmap_first_free</a> ()
+<dl class="el"><dd class="mdescRight">Recherche la première page de libre.  <a href="#fc7ca1eea6ea2b18777355203a85315c"></a><br></dl><li>void <a class="el" href="pmem_8h.html#70085b736e8038b104816e9d68ad1a65">pmem_set_region</a> (unsigned int baseAddr, size_t taille)
+<dl class="el"><dd class="mdescRight">Marque une région comme utilisée.  <a href="#70085b736e8038b104816e9d68ad1a65"></a><br></dl><li>void <a class="el" href="pmem_8h.html#2bae5e50b780369741ab3e56330fae92">pmem_unset_region</a> (unsigned int baseAddr, size_t taille)
+<dl class="el"><dd class="mdescRight">Marque une région de la mémoire physique, une suite de pages, comme inutilisée.  <a href="#2bae5e50b780369741ab3e56330fae92"></a><br></dl><li>int <a class="el" href="pmem_8h.html#fb0167e49a57b53d9729abf45c149878">pmem_init</a> (void *addr, unsigned long tailleMem, unsigned long taillePage)
+<dl class="el"><dd class="mdescRight">Prépare le gestionnaire de mémoire physique.  <a href="#fb0167e49a57b53d9729abf45c149878"></a><br></dl><li>int <a class="el" href="pmem_8h.html#fd973407223b10bae25a48caeedbc81f">init_mmap</a> ()
+<dl class="el"><dd class="mdescRight">Alloue et initialise la bitmap.  <a href="#fd973407223b10bae25a48caeedbc81f"></a><br></dl></ul>
+<h2>Variables</h2>
+<ul>
+<li>struct <a class="el" href="structpmem__header.html">pmem_header</a> <a class="el" href="pmem_8h.html#1e7cdd647eae0eb58e4d6f809918ebd6">packed</a>
+<dl class="el"><dd class="mdescRight">Header décrivant les structures de gestion de la mémoire.  <a href="#1e7cdd647eae0eb58e4d6f809918ebd6"></a><br></dl><li>static <a class="el" href="structpmem__header.html">pmem_header</a> * <a class="el" href="pmem_8h.html#75dfea065d9f92402756bf5c80de8a13">header</a>
+<dl class="el"><dd class="mdescRight">L'adresse de début des structures de gestion de la mémoire physique.  <a href="#75dfea065d9f92402756bf5c80de8a13"></a><br></dl></ul>
+<hr><a name="_details"></a><h2>Description détaillée</h2>
+Définition du gestionnaire de mémoire physique. 
+<p>
+Contient toutes les fonctions utiles à l'initialisation et au bon fonctionnement du gestionnaire de mémoire. <dl compact><dt><b><a class="el" href="todo.html#_todo000001">À faire:</a></b></dt><dd>Ajouter une fonction permettant d'allouer plusieurs pages <p>
+Ajouter une fonction permettant d'allouer plusieurs pages contiguës </dd></dl>
+
+<p>Définition dans le fichier <a class="el" href="pmem_8h-source.html">pmem.h</a>.</p>
+<hr><h2>Documentation des macros</h2>
+<a class="anchor" name="7d467c1d283fdfa1f2081ba1e0d01b6e"></a><!-- doxytag: member="pmem.h::PAGE_SIZE" ref="7d467c1d283fdfa1f2081ba1e0d01b6e" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PAGE_SIZE          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Définition à la ligne <a class="el" href="pmem_8h-source.html#l00012">12</a> du fichier <a class="el" href="pmem_8h-source.html">pmem.h</a>.</p>
+
+</div>
+</div><p>
+<hr><h2>Documentation des fonctions</h2>
+<a class="anchor" name="46f32f6e351d9d57bff39ede2499c599"></a><!-- doxytag: member="pmem.h::mmap_set" ref="46f32f6e351d9d57bff39ede2499c599" args="(unsigned int bit)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mmap_set           </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&nbsp;</td>
+          <td class="paramname"> <em>bit</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+marque une page comme utilisée 
+<p>
+<dl compact><dt><b>Paramètres:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>bit</em>&nbsp;</td><td>numéro de la page en comptant à partir de 0 </td></tr>
+  </table>
+</dl>
+<dl compact><dt><b><a class="el" href="todo.html#_todo000003">À faire:</a></b></dt><dd>n'utiliser que les combinaisons de bits </dd></dl>
+
+<p>Définition à la ligne <a class="el" href="pmem_8c-source.html#l00009">9</a> du fichier <a class="el" href="pmem_8c-source.html">pmem.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="21db1020939cc0de4afeafc50a1291bb"></a><!-- doxytag: member="pmem.h::mmap_unset" ref="21db1020939cc0de4afeafc50a1291bb" args="(unsigned int bit)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mmap_unset           </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&nbsp;</td>
+          <td class="paramname"> <em>bit</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+marque une page comme non utilisée 
+<p>
+<dl compact><dt><b>Paramètres:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>bit</em>&nbsp;</td><td>numéro du bit en comptant à partir de à </td></tr>
+  </table>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="pmem_8c-source.html#l00013">13</a> du fichier <a class="el" href="pmem_8c-source.html">pmem.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="9ff0fdcf9ff9a7a7eab4f4c847396a01"></a><!-- doxytag: member="pmem.h::mmap_test" ref="9ff0fdcf9ff9a7a7eab4f4c847396a01" args="(unsigned int bit)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool mmap_test           </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&nbsp;</td>
+          <td class="paramname"> <em>bit</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Teste si la page au bit demandé est libre. 
+<p>
+<dl compact><dt><b>Paramètres:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>bit</em>&nbsp;</td><td>le numéro de la page à tester, en comptant à partir de 0 </td></tr>
+  </table>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="pmem_8c-source.html#l00017">17</a> du fichier <a class="el" href="pmem_8c-source.html">pmem.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="fc7ca1eea6ea2b18777355203a85315c"></a><!-- doxytag: member="pmem.h::mmap_first_free" ref="fc7ca1eea6ea2b18777355203a85315c" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int mmap_first_free           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Recherche la première page de libre. 
+<p>
+<dl class="return" compact><dt><b>Renvoie:</b></dt><dd>l'offset en bit de la première page de libre, -1 si toute la mémoire est occupée </dd></dl>
+
+<p>Définition à la ligne <a class="el" href="pmem_8c-source.html#l00022">22</a> du fichier <a class="el" href="pmem_8c-source.html">pmem.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="70085b736e8038b104816e9d68ad1a65"></a><!-- doxytag: member="pmem.h::pmem_set_region" ref="70085b736e8038b104816e9d68ad1a65" args="(unsigned int baseAddr, size_t taille)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void pmem_set_region           </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&nbsp;</td>
+          <td class="paramname"> <em>baseAddr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&nbsp;</td>
+          <td class="paramname"> <em>taille</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Marque une région comme utilisée. 
+<p>
+<dl compact><dt><b>Paramètres:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>baseAddr</em>&nbsp;</td><td>adresse de début de la région dans la mémoire physique </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>taille</em>&nbsp;</td><td>taille de la région en bits </td></tr>
+  </table>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="pmem_8c-source.html#l00038">38</a> du fichier <a class="el" href="pmem_8c-source.html">pmem.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="2bae5e50b780369741ab3e56330fae92"></a><!-- doxytag: member="pmem.h::pmem_unset_region" ref="2bae5e50b780369741ab3e56330fae92" args="(unsigned int baseAddr, size_t taille)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void pmem_unset_region           </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&nbsp;</td>
+          <td class="paramname"> <em>baseAddr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&nbsp;</td>
+          <td class="paramname"> <em>taille</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Marque une région de la mémoire physique, une suite de pages, comme inutilisée. 
+<p>
+On optimise cela en allouant ce qui est possible par groupes de 32, soit un int <dl compact><dt><b>Paramètres:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>baseAddr</em>&nbsp;</td><td>adresse de début de la région dans la mémoire physique  pas dans la bitmap </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>taille</em>&nbsp;</td><td>taille de la région en bits </td></tr>
+  </table>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="pmem_8c-source.html#l00081">81</a> du fichier <a class="el" href="pmem_8c-source.html">pmem.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="fb0167e49a57b53d9729abf45c149878"></a><!-- doxytag: member="pmem.h::pmem_init" ref="fb0167e49a57b53d9729abf45c149878" args="(void *addr, unsigned long tailleMem, unsigned long taillePage)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int pmem_init           </td>
+          <td>(</td>
+          <td class="paramtype">void *&nbsp;</td>
+          <td class="paramname"> <em>addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned long&nbsp;</td>
+          <td class="paramname"> <em>tailleMem</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned long&nbsp;</td>
+          <td class="paramname"> <em>taillePage</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Prépare le gestionnaire de mémoire physique. 
+<p>
+Les structures de données utiles à la gestion de la mémoire physique, c'est-à-dire, du système de pagination, sont initialisées. A appeler en tout premier (sinon erreurs !) <dl compact><dt><b>Paramètres:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>addr</em>&nbsp;</td><td>adresse du debut des structures de données. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>tailleMem</em>&nbsp;</td><td>la taille de la mémoire </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>taillePage</em>&nbsp;</td><td>la taille d'une page </td></tr>
+  </table>
+</dl>
+<dl compact><dt><b><a class="el" href="todo.html#_todo000004">À faire:</a></b></dt><dd>Permettre le passage d'une memory map </dd></dl>
+
+<p>Définition à la ligne <a class="el" href="pmem_8c-source.html#l00085">85</a> du fichier <a class="el" href="pmem_8c-source.html">pmem.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="fd973407223b10bae25a48caeedbc81f"></a><!-- doxytag: member="pmem.h::init_mmap" ref="fd973407223b10bae25a48caeedbc81f" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int init_mmap           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Alloue et initialise la bitmap. 
+<p>
+<dl class="return" compact><dt><b>Renvoie:</b></dt><dd>0 en cas d'échec <p>
+0 en cas de succès </dd></dl>
+
+<p>Définition à la ligne <a class="el" href="pmem_8c-source.html#l00108">108</a> du fichier <a class="el" href="pmem_8c-source.html">pmem.c</a>.</p>
+
+</div>
+</div><p>
+<hr><h2>Documentation des variables</h2>
+<a class="anchor" name="1e7cdd647eae0eb58e4d6f809918ebd6"></a><!-- doxytag: member="pmem.h::packed" ref="1e7cdd647eae0eb58e4d6f809918ebd6" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="structpmem__header.html">pmem_header</a> <a class="el" href="pmem_8h.html#1e7cdd647eae0eb58e4d6f809918ebd6">packed</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Header décrivant les structures de gestion de la mémoire. 
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="75dfea065d9f92402756bf5c80de8a13"></a><!-- doxytag: member="pmem.h::header" ref="75dfea065d9f92402756bf5c80de8a13" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structpmem__header.html">pmem_header</a>* <a class="el" href="pmem_8h.html#75dfea065d9f92402756bf5c80de8a13">header</a><code> [static]</code>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+L'adresse de début des structures de gestion de la mémoire physique. 
+<p>
+<dl compact><dt><b><a class="el" href="todo.html#_todo000002">À faire:</a></b></dt><dd>transformer pmem_adrr en <a class="el" href="structpmem__header.html" title="Header décrivant les structures de gestion de la mémoire.">pmem_header</a> </dd></dl>
+
+<p>Définition à la ligne <a class="el" href="pmem_8h-source.html#l00040">40</a> du fichier <a class="el" href="pmem_8h-source.html">pmem.h</a>.</p>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Généré le Thu Aug 5 21:44:46 2010 pour Allocation mmoire par&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
+</body>
+</html>

@@ -1,0 +1,4 @@
+On utilise le système de linker script de ld.
+On utilise ainsi un tel script :
+	ld -TmyScript
+	or ld myScript

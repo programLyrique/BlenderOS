@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>BlenderOS: Référence du fichier flag.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css">
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Généré par Doxygen 1.5.8 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Page&nbsp;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&nbsp;associées</span></a></li>
+      <li><a href="annotated.html"><span>Structures&nbsp;de&nbsp;données</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Liste&nbsp;des&nbsp;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Portée&nbsp;globale</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Référence du fichier flag.h</h1>Fournit des macros de manipulation de flags.  
+<a href="#_details">Plus de détails...</a>
+<p>
+<h2>Structures de données</h2>
+<ul>
+<li>union <a class="el" href="unionoctets__uint32.html">octets_uint32</a>
+</ul>
+<h2>Macros</h2>
+<ul>
+<li>#define <a class="el" href="flag_8h.html#9ab29fb035e998ac4a02906f679e2a38">CHEK_FLAG</a>(flags, bit)
+<li>#define <a class="el" href="flag_8h.html#3da189f9ae53f99482bfd1357d12063f">SET_FLAG</a>(flags, bit)
+<li>#define <a class="el" href="flag_8h.html#d5c7b838c08da85e09eeb386e5c943f7">UNSET_FLAG</a>(flags, bit)
+<li>#define <a class="el" href="flag_8h.html#01a2fb5e4ffcf95a1879a3166c934c0c">EXTRACT_OCTET</a>(value, octet)
+</ul>
+<hr><a name="_details"></a><h2>Description détaillée</h2>
+Manipule des bits d'un ensemble plus grand <dl class="author" compact><dt><b>Auteur:</b></dt><dd>Pierre Donat-Bouillud </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd></dd></dl>
+<hr><h2>Documentation des macros</h2>
+<a class="anchor" name="9ab29fb035e998ac4a02906f679e2a38"></a><!-- doxytag: member="flag.h::CHEK_FLAG" ref="9ab29fb035e998ac4a02906f679e2a38" args="(flags, bit)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CHEK_FLAG          </td>
+          <td>(</td>
+          <td class="paramtype">flags,         <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bit&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+V�rifie si le le bit dans flags est � 1 
+</div>
+</div><p>
+<a class="anchor" name="3da189f9ae53f99482bfd1357d12063f"></a><!-- doxytag: member="flag.h::SET_FLAG" ref="3da189f9ae53f99482bfd1357d12063f" args="(flags, bit)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SET_FLAG          </td>
+          <td>(</td>
+          <td class="paramtype">flags,         <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bit&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Positionne le bit dans flags � 1 
+</div>
+</div><p>
+<a class="anchor" name="d5c7b838c08da85e09eeb386e5c943f7"></a><!-- doxytag: member="flag.h::UNSET_FLAG" ref="d5c7b838c08da85e09eeb386e5c943f7" args="(flags, bit)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UNSET_FLAG          </td>
+          <td>(</td>
+          <td class="paramtype">flags,         <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bit&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Positionne le bit dans flags � 0 
+</div>
+</div><p>
+<a class="anchor" name="01a2fb5e4ffcf95a1879a3166c934c0c"></a><!-- doxytag: member="flag.h::EXTRACT_OCTET" ref="01a2fb5e4ffcf95a1879a3166c934c0c" args="(value, octet)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EXTRACT_OCTET          </td>
+          <td>(</td>
+          <td class="paramtype">value,         <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">octet&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Extrait l'octet OCTET en partant de l'octet le moin significatif d'un uint32 <dl compact><dt><b><a class="el" href="todo.html#_todo000006">À faire:</a></b></dt><dd>en l'�tat, cette macro ne fonctionne : la modifier </dd></dl>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Généré le Fri Aug 27 23:25:44 2010 pour BlenderOS par&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
+</body>
+</html>
