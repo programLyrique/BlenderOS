@@ -54,7 +54,8 @@ multiboot_header:
 
 multiboot_entry:
      /* Initialize the stack pointer. */
-     movl    $(stack + STACK_SIZE), %esp
+     movl    $(stack + STACK_SIZE), %ebp
+     movl 	%ebp, %esp
 
      /* Reset EFLAGS. */
      pushl   $0

@@ -12,6 +12,7 @@ URGENT :
 	fonctions d'affichage grossières
 	passage en mode protégé
 	Port d'affichage/débogage de Bochs
+	Interface de débuggage modeste
 	
 #Version 0.2 :
 	Gestion de la mémoire physique
@@ -46,7 +47,7 @@ URGENT :
 	Cartes wifi courantes ou désirées : atheros et realteck...
 	
 #Version 0.8 :
-	standard pci
+	standard pci : peut-être avant pour pouvoir faire les versions précédentes !
 	
 #Version 0.9 :
 	standard USB

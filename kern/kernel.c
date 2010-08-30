@@ -27,7 +27,8 @@
  void kmain(unsigned long magic, unsigned long addr)
  {
 	 cls();
-	printk("Entering BlenderOS.\nLoading boot information.");
+	printk("Entering BlenderOS.\nLoading boot information.\n");
+	 printk("Magic is %x and addr is %p.", magic, addr);
 	 //On vérifie si le noyau a été chargé par un chargeur multiboot
 	 if (magic != MULTIBOOT_BOOTLOADER_MAGIC)
 	 {
