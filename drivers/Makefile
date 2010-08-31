@@ -4,6 +4,7 @@ export PREFIX
 
 all: $(TARGET)
 
+.PHONY:text
 text:
 	$(MAKE) -C text
 

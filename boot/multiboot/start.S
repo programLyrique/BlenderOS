@@ -15,7 +15,7 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA. */
 
-#define ASM_FILE        1
+   
 
 /* C symbol format. HAVE_ASM_USCORE is defined by configure. */
 #ifdef HAVE_ASM_USCORE
@@ -52,14 +52,19 @@ multiboot_header:
      /* checksum */
      .long   -(MULTIBOOT_HEADER_MAGIC + MULTIBOOT_HEADER_FLAGS)
 
+	/* Our stack area. */
+     .comm   stack, STACK_SIZE,32
 multiboot_entry:
      /* Initialize the stack pointer. */
      movl    $(stack + STACK_SIZE), %ebp
      movl 	%ebp, %esp
 
-     /* Reset EFLAGS. */
+     xor %ecx, %ecx
+     pushl %ecx
+     
+     // Reset EFLAGS. 
      pushl   $0
-     popf
+     popf 
 
      /* Push the pointer to the Multiboot information structure. */
      pushl   %ebx
@@ -72,6 +77,3 @@ multiboot_entry:
      cli
      hlt
 
-
-     /* Our stack area. */
-     .comm   stack, STACK_SIZE

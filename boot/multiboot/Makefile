@@ -1,4 +1,3 @@
-#Makefile temporaire, de test
 include $(PREFIX)/Variables.mk
 TARGET:=start.o multiboot.o
 #CC:=gcc -D $(ARCH) -Wall -fno-hosted -m32 -mtune=i586
@@ -13,6 +12,8 @@ all: $(TARGET)
 
 start.o: start.S
 	$(CC) -c $^ -o $(PREFIX)/bin/$@
+	
+#cpp $^| as --warn --32 -mtune=i586 -o $(PREFIX)/bin/$@
 
 multiboot.o:  multiboot.c
 	$(CC) -c $^ -o $(PREFIX)/bin/$@

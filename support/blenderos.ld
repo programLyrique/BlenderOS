@@ -14,10 +14,6 @@
  
  OUTPUT(BlenderOS_Kernel)
  
- /* TODO : modify multiboot.asm to use gnu gas and a multiboot section
-  * see sos documentation chapter 1
-  */
-  
   /*TODO : Add an INPUT command where putting all the objet files
    * A coupler avec SEARCH_DIR(PATH) où PATH=../bin ?
    */
@@ -30,17 +26,17 @@
 		b signifie ici beginning
 		e 		   end
 		*/
-	. = . ;
+	/*. = . ;*/
 	__b_load	= .;
 	
-	/*We put the multiboot header at the beginning of the kernel */
+	/*We put the multiboot header at the beginning of the kernel  : ax means alloc execute*/
 	.multiboot :
 	{
 		/*The multiboot section*/
 		*(.multiboot);
 	}
 	
-	. = . ;
+	/*. = . ;*/
 	__b_kernel = . ;
 	.text : 
 	{ 
@@ -60,10 +56,11 @@
 		PROVIDE(_rodata = . );
 	}
 	
-	. = . ;
+	/*. = . ;*/
 	__e_load = . ;
 	.bss : 
 	{ 
+		*(COMMON)
 		*(.bss)
 		PROVIDE(_ebss = . );
 	}

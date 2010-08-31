@@ -6,6 +6,7 @@ export PREFIX
 
 all: $(TARGET)
 
+.PHONY:multiboot
 multiboot:
 	make -C multiboot/
 

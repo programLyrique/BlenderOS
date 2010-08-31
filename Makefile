@@ -9,7 +9,7 @@ all: $(TARGET)
 .PHONY : boot kernel userland drivers architecture clean
 
 BlenderOS_Kernel: boot architecture utils drivers kernel
-	ld -melf_i386 -Tsupport/blenderos.ld bin/*.o -Map=BlenderOS.map
+	ld -melf_i386 -nostartfiles -Tsupport/blenderos.ld bin/*.o -Map=BlenderOS.map
 	#Il faudra améliorer la sélection des .o à lier
 	#cat boot/bootsect kern/kernel /dev/zero | dd of=image bs=512 count=2880
 

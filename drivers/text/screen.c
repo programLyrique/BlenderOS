@@ -8,9 +8,9 @@ static uint_8 kAttr=DEFAULT_KATTR;
 static volatile uchar *video=(uchar *)VIDEO_MEM;
 
 /**Postion x*/
-static unsigned int kX=0;
+static int kX=0;
 /**Position y*/
-static unsigned int kY=0;
+static int kY=0;
 
 void cls (void)
  {

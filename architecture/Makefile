@@ -7,6 +7,7 @@ export PREFIX
 
 all: $(TARGET)
 
+.PHONY:ia32
 ia32:
 	make -C ia32/
 	
