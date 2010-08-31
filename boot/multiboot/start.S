@@ -59,8 +59,6 @@ multiboot_entry:
      movl    $(stack + STACK_SIZE), %ebp
      movl 	%ebp, %esp
 
-     xor %ecx, %ecx
-     pushl %ecx
      
      // Reset EFLAGS. 
      pushl   $0

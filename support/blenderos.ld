@@ -26,20 +26,16 @@
 		b signifie ici beginning
 		e 		   end
 		*/
-	/*. = . ;*/
 	__b_load	= .;
 	
-	/*We put the multiboot header at the beginning of the kernel  : ax means alloc execute*/
-	.multiboot :
-	{
-		/*The multiboot section*/
-		*(.multiboot);
-	}
+	/*We put the multiboot header at the beginning of the kernel
+	but in the .text section, otherwise, stuffs won't go well !*/
 	
-	/*. = . ;*/
 	__b_kernel = . ;
 	.text : 
 	{ 
+		*(.multiboot)
+		bin/kernel.o(.text)
 		*(.text)
 		PROVIDE(_etext = .);
 	}
@@ -56,7 +52,6 @@
 		PROVIDE(_rodata = . );
 	}
 	
-	/*. = . ;*/
 	__e_load = . ;
 	.bss : 
 	{ 

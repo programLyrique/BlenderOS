@@ -13,101 +13,127 @@ Linker script and memory map
 
                 0x0000000000200000                . = 0x200000
                 0x0000000000200000                __b_load = .
+                0x0000000000200000                __b_kernel = .
 
-.multiboot      0x0000000000200000       0x26
+.text           0x0000000000200000      0x96f
  *(.multiboot)
- .multiboot     0x0000000000200000       0x26 bin/start.o
+ .multiboot     0x0000000000200000       0x23 bin/start.o
                 0x0000000000200000                _start
                 0x0000000000200000                start
-                0x0000000000200026                __b_kernel = .
-
-.text           0x0000000000200028      0xa23
+ bin/kernel.o(.text)
+ *fill*         0x0000000000200023        0x1 00
+ .text          0x0000000000200024       0x92 bin/kernel.o
+                0x0000000000200024                kmain
  *(.text)
- .text          0x0000000000200028        0x0 bin/gdt.o
- .text          0x0000000000200028       0x92 bin/kernel.o
-                0x0000000000200028                kmain
- *fill*         0x00000000002000ba        0x2 00
- .text          0x00000000002000bc      0x18f bin/multiboot.o
-                0x00000000002000bc                init_multiboot_info
-                0x00000000002000fd                get_multiboot_info
-                0x0000000000200107                get_mem
-                0x0000000000200131                get_boot_device
-                0x000000000020015d                get_cmdline
-                0x000000000020017a                get_nbModules
-                0x0000000000200197                get_modules
-                0x00000000002001b4                get_mmap_length
-                0x00000000002001d1                get_mmap
-                0x00000000002001ee                get_drives_length
-                0x000000000020020d                get_drive
-                0x000000000020022c                get_config_table
- *fill*         0x000000000020024b        0x1 00
- .text          0x000000000020024c      0x335 bin/printk.o
-                0x000000000020024c                printk
- *fill*         0x0000000000200581        0x3 00
- .text          0x0000000000200584      0x1de bin/screen.o
-                0x0000000000200584                cls
-                0x00000000002005a4                scrollup
-                0x0000000000200626                putchar
-                0x000000000020071a                setAttribute
- *fill*         0x0000000000200762        0x2 00
- .text          0x0000000000200764        0x0 bin/start.o
- .text          0x0000000000200764      0x2e7 bin/string.o
-                0x0000000000200764                memcpy
-                0x000000000020085e                memset
-                0x0000000000200974                itoa
-                0x0000000000200a20                strlen
-                0x0000000000200a4b                PROVIDE (_etext, .)
+ *fill*         0x00000000002000b6        0x2 00
+ .text          0x00000000002000b8       0x8f bin/bochs_port.o
+                0x00000000002000b8                bochs_breakpoint
+                0x00000000002000e4                bochs_puts
+                0x0000000000200129                bochs_putchar
+ *fill*         0x0000000000200147        0x1 00
+ .text          0x0000000000200148        0x0 bin/gdt.o
+ .text          0x0000000000200148       0x38 bin/ioports.o
+                0x0000000000200148                outb
+                0x0000000000200154                inb
+                0x000000000020015d                outw
+                0x000000000020016a                inw
+                0x0000000000200174                io_wait
+ .text          0x0000000000200180      0x141 bin/multiboot.o
+                0x0000000000200180                get_multiboot_info
+                0x000000000020018a                get_mem
+                0x00000000002001af                get_boot_device
+                0x00000000002001cc                get_cmdline
+                0x00000000002001e4                get_nbModules
+                0x00000000002001fc                get_modules
+                0x0000000000200214                get_mmap_length
+                0x000000000020022c                get_mmap
+                0x0000000000200244                get_drives_length
+                0x000000000020025c                get_drive
+                0x0000000000200274                get_config_table
+                0x000000000020028c                init_multiboot_info
+ *fill*         0x00000000002002c1        0x3 00
+ .text          0x00000000002002c4      0x274 bin/printk.o
+                0x00000000002002c4                printk
+ .text          0x0000000000200538      0x14e bin/screen.o
+                0x0000000000200538                scrollup
+                0x0000000000200599                putchar
+                0x000000000020065d                setAttribute
+                0x0000000000200669                cls
+ *fill*         0x0000000000200686        0x2 00
+ .text          0x0000000000200688        0x0 bin/start.o
+ .text          0x0000000000200688      0x2e7 bin/string.o
+                0x0000000000200688                memcpy
+                0x0000000000200782                memset
+                0x0000000000200898                itoa
+                0x0000000000200944                strlen
+                0x000000000020096f                PROVIDE (_etext, .)
 
-.iplt           0x0000000000200a4c        0x0 load address 0x0000000000200a4b
+.iplt           0x0000000000200970        0x0 load address 0x000000000020096f
  .iplt          0x0000000000000000        0x0 bin/kernel.o
 
-.data           0x0000000000200a4c        0x8
+.data           0x0000000000200970        0x8
  *(.data)
- .data          0x0000000000200a4c        0x0 bin/gdt.o
- .data          0x0000000000200a4c        0x0 bin/kernel.o
- .data          0x0000000000200a4c        0x0 bin/multiboot.o
- .data          0x0000000000200a4c        0x0 bin/printk.o
- .data          0x0000000000200a4c        0x8 bin/screen.o
- .data          0x0000000000200a54        0x0 bin/start.o
- .data          0x0000000000200a54        0x0 bin/string.o
-                0x0000000000200a54                PROVIDE (_edata, .)
+ .data          0x0000000000200970        0x0 bin/kernel.o
+ .data          0x0000000000200970        0x0 bin/bochs_port.o
+ .data          0x0000000000200970        0x0 bin/gdt.o
+ .data          0x0000000000200970        0x0 bin/ioports.o
+ .data          0x0000000000200970        0x0 bin/multiboot.o
+ .data          0x0000000000200970        0x0 bin/printk.o
+ .data          0x0000000000200970        0x8 bin/screen.o
+ .data          0x0000000000200978        0x0 bin/start.o
+ .data          0x0000000000200978        0x0 bin/string.o
+                0x0000000000200978                PROVIDE (_edata, .)
 
-.igot.plt       0x0000000000200a54        0x0
+.igot.plt       0x0000000000200978        0x0
  .igot.plt      0x0000000000000000        0x0 bin/kernel.o
 
-.rodata         0x0000000000200a54       0xbe
+.rodata         0x0000000000200978        0x0
  *(.rodata)
- .rodata        0x0000000000200a54       0xb5 bin/kernel.o
- .rodata        0x0000000000200b09        0x9 bin/printk.o
-                0x0000000000200b12                PROVIDE (_rodata, .)
-                0x0000000000200b12                __e_load = .
+                0x0000000000200978                PROVIDE (_rodata, .)
+                0x0000000000200978                __e_load = .
 
-.rel.dyn        0x0000000000200b14        0x0 load address 0x0000000000200b12
+.rodata.str1.4  0x0000000000200978       0xc8
+ .rodata.str1.4
+                0x0000000000200978       0xc8 bin/kernel.o
+                                         0xc5 (size before relaxing)
+
+.rodata.str1.1  0x0000000000200a40       0x25
+ .rodata.str1.1
+                0x0000000000200a40       0x1c bin/kernel.o
+ .rodata.str1.1
+                0x0000000000200a5c        0x9 bin/printk.o
+
+.rel.dyn        0x0000000000200a68        0x0 load address 0x0000000000200a65
  .rel.iplt      0x0000000000000000        0x0 bin/kernel.o
  .rel.text      0x0000000000000000        0x0 bin/kernel.o
 
-.bss            0x0000000000200b20     0x40c0
+.bss            0x0000000000200a80     0x4060
  *(COMMON)
- COMMON         0x0000000000200b20     0x4000 bin/start.o
-                0x0000000000200b20                stack
+ COMMON         0x0000000000200a80     0x4000 bin/start.o
+                0x0000000000200a80                stack
  *(.bss)
- .bss           0x0000000000204b20        0x0 bin/gdt.o
- .bss           0x0000000000204b20       0x58 bin/kernel.o
- *fill*         0x0000000000204b78        0x8 00
- .bss           0x0000000000204b80       0x58 bin/multiboot.o
- .bss           0x0000000000204bd8        0x0 bin/printk.o
- .bss           0x0000000000204bd8        0x8 bin/screen.o
- .bss           0x0000000000204be0        0x0 bin/start.o
- .bss           0x0000000000204be0        0x0 bin/string.o
-                0x0000000000204be0                PROVIDE (_ebss, .)
-                0x0000000000204be0                ___e_kernel = .
+ .bss           0x0000000000204a80        0x0 bin/kernel.o
+ .bss           0x0000000000204a80        0x0 bin/bochs_port.o
+ .bss           0x0000000000204a80        0x0 bin/gdt.o
+ .bss           0x0000000000204a80        0x0 bin/ioports.o
+ .bss           0x0000000000204a80       0x58 bin/multiboot.o
+ .bss           0x0000000000204ad8        0x0 bin/printk.o
+ .bss           0x0000000000204ad8        0x8 bin/screen.o
+ .bss           0x0000000000204ae0        0x0 bin/start.o
+ .bss           0x0000000000204ae0        0x0 bin/string.o
+                0x0000000000204ae0                PROVIDE (_ebss, .)
+                0x0000000000204ae0                ___e_kernel = .
 
 .note.GNU-stack
                 0x0000000000000000        0x0
  .note.GNU-stack
+                0x0000000000000000        0x0 bin/kernel.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 bin/bochs_port.o
+ .note.GNU-stack
                 0x0000000000000000        0x0 bin/gdt.o
  .note.GNU-stack
-                0x0000000000000000        0x0 bin/kernel.o
+                0x0000000000000000        0x0 bin/ioports.o
  .note.GNU-stack
                 0x0000000000000000        0x0 bin/multiboot.o
  .note.GNU-stack
@@ -117,20 +143,24 @@ Linker script and memory map
  .note.GNU-stack
                 0x0000000000000000        0x0 bin/string.o
 
-.comment        0x0000000000204be0       0x22
+.comment        0x0000000000204ae0       0x22
  *(.comment)
- .comment       0x0000000000204be0       0x22 bin/gdt.o
+ .comment       0x0000000000204ae0       0x22 bin/kernel.o
                                          0x23 (size before relaxing)
- .comment       0x0000000000000000       0x23 bin/kernel.o
+ .comment       0x0000000000000000       0x23 bin/bochs_port.o
+ .comment       0x0000000000000000       0x23 bin/gdt.o
+ .comment       0x0000000000000000       0x23 bin/ioports.o
  .comment       0x0000000000000000       0x23 bin/multiboot.o
  .comment       0x0000000000000000       0x23 bin/printk.o
  .comment       0x0000000000000000       0x23 bin/screen.o
  .comment       0x0000000000000000       0x23 bin/string.o
+LOAD bin/bochs_port.o
 LOAD bin/gdt.o
+LOAD bin/ioports.o
 LOAD bin/kernel.o
 LOAD bin/multiboot.o
 LOAD bin/printk.o
 LOAD bin/screen.o
 LOAD bin/start.o
 LOAD bin/string.o
-OUTPUT(startfiles elf32-i386)
+OUTPUT(BlenderOS_Kernel elf32-i386)

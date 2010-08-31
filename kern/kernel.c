@@ -17,6 +17,7 @@
  #include "printk.h"
  //Abstraire de l'architecture l'effacement de l'écran
  #include "../drivers/text/screen.h"
+ #include "../drivers/bochs_port/bochs_port.h"
 
 
  /** \brief La fonction d'entrée du noyau
@@ -29,6 +30,7 @@
 	 cls();
 	printk("Entering BlenderOS.\nLoading boot information.\n");
 	 printk("Magic is %x and addr is %p.", magic, addr);
+	 bochs_puts("Testing Bochs puts.\nIt seems to go well !"); 
 	 //On vérifie si le noyau a été chargé par un chargeur multiboot
 	 if (magic != MULTIBOOT_BOOTLOADER_MAGIC)
 	 {

@@ -11,4 +11,5 @@ string.o: string.c
 	
 .PHONY: clean
 clean:
-	rm -f $(addprefix $(PREFIX)/, $(OBJ)}
+	cd $(PREFIX)/bin
+	rm -f $(OBJ)
