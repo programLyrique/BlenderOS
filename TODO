@@ -3,15 +3,14 @@ A faire :
 Pour voir ce qui  a été réalisé par la suite dans chaque version, se référer aux fichiers 
 de versions
 
-URGENT :
-	- transformer multiboot.asm en multiboot.S et effectuer le changment de syntaxe
-	 Intel -> AT&T
+REFLEXION : utiliser __builtin__expect__(x, a) où a =1 ou 0 pour optimiser les conditions très
+peu probable, ou très certaine...
 
 # Version 0.1 : 
-	standard multiboot
-	fonctions d'affichage grossières
+	standard multiboot : oui
+	fonctions d'affichage grossières : oui
 	passage en mode protégé
-	Port d'affichage/débogage de Bochs
+	Port d'affichage/débogage de Bochs : oui
 	Interface de débuggage modeste
 	
 #Version 0.2 :

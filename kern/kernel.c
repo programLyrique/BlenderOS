@@ -13,11 +13,14 @@
  * \todo mieux gérer les inclusions de fichiers
  * \todo Créer une fonction d'affichage plus rapide, sans formatage.
  */
+ //Support du multiboot
  #include "../boot/multiboot/multiboot.h"
+ //Formatage de texte.
  #include "printk.h"
  //Abstraire de l'architecture l'effacement de l'écran
  #include "../drivers/text/screen.h"
  #include "../drivers/bochs_port/bochs_port.h"
+ #include "../utils/assert.h"
 
 
  /** \brief La fonction d'entrée du noyau
@@ -27,16 +30,17 @@
   */
  void kmain(unsigned long magic, unsigned long addr)
  {
-	 cls();
+	cls();
 	printk("Entering BlenderOS.\nLoading boot information.\n");
-	 printk("Magic is %x and addr is %p.", magic, addr);
-	 bochs_puts("Testing Bochs puts.\nIt seems to go well !"); 
-	 //On vérifie si le noyau a été chargé par un chargeur multiboot
-	 if (magic != MULTIBOOT_BOOTLOADER_MAGIC)
+	printk("Magic is %x and addr is %p.", magic, addr);
+	bochs_puts("Testing Bochs puts.\nIt seems to go well !"); 
+	//On vérifie si le noyau a été chargé par un chargeur multiboot
+	ASSERT(magic == MULTIBOOT_BOOTLOADER_MAGIC);
+	/*if (magic != MULTIBOOT_BOOTLOADER_MAGIC)
 	 {
 		 printk("\nThe loader has to be multiboot standard compliant : wrong magic := %x.", magic);
 		 return;
-	 }
+	 }*/
 	init_multiboot_info((multiboot_info_t *)addr);
-	 printk("\nLower mem: %d and upper mem %d.", get_mem(MEM_LOWER), get_mem(MEM_UPPER));
+	printk("\nLower mem: %d and upper mem %d.", get_mem(MEM_LOWER), get_mem(MEM_UPPER));
  }

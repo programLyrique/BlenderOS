@@ -60,6 +60,7 @@
 		PROVIDE(_ebss = . );
 	}
 	___e_kernel = . ;
-	.comment : { *(.comment) }
+	/* Strip unnecessary stuff */
+	 /DISCARD/ : { *(.comment .note*  .dtors .ctors .gnu.*) }
   }
   

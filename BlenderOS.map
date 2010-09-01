@@ -4,6 +4,33 @@ Common symbol       size              file
 
 stack               0x4000            bin/start.o
 
+Discarded input sections
+
+ .comment       0x0000000000000000       0x23 bin/kernel.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 bin/kernel.o
+ .comment       0x0000000000000000       0x23 bin/bochs_port.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 bin/bochs_port.o
+ .comment       0x0000000000000000       0x23 bin/gdt.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 bin/gdt.o
+ .comment       0x0000000000000000       0x23 bin/ioports.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 bin/ioports.o
+ .comment       0x0000000000000000       0x23 bin/multiboot.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 bin/multiboot.o
+ .comment       0x0000000000000000       0x23 bin/printk.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 bin/printk.o
+ .comment       0x0000000000000000       0x23 bin/screen.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 bin/screen.o
+ .comment       0x0000000000000000       0x23 bin/string.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 bin/string.o
+
 Memory Configuration
 
 Name             Origin             Length             Attributes
@@ -15,7 +42,7 @@ Linker script and memory map
                 0x0000000000200000                __b_load = .
                 0x0000000000200000                __b_kernel = .
 
-.text           0x0000000000200000      0x96f
+.text           0x0000000000200000      0x8c1
  *(.multiboot)
  .multiboot     0x0000000000200000       0x23 bin/start.o
                 0x0000000000200000                _start
@@ -61,99 +88,71 @@ Linker script and memory map
                 0x0000000000200669                cls
  *fill*         0x0000000000200686        0x2 00
  .text          0x0000000000200688        0x0 bin/start.o
- .text          0x0000000000200688      0x2e7 bin/string.o
+ .text          0x0000000000200688      0x239 bin/string.o
                 0x0000000000200688                memcpy
-                0x0000000000200782                memset
-                0x0000000000200898                itoa
-                0x0000000000200944                strlen
-                0x000000000020096f                PROVIDE (_etext, .)
+                0x0000000000200769                memset
+                0x0000000000200834                itoa
+                0x00000000002008ae                strlen
+                0x00000000002008c1                PROVIDE (_etext, .)
 
-.iplt           0x0000000000200970        0x0 load address 0x000000000020096f
+.iplt           0x00000000002008c4        0x0 load address 0x00000000002008c1
  .iplt          0x0000000000000000        0x0 bin/kernel.o
 
-.data           0x0000000000200970        0x8
+.data           0x00000000002008c4        0x8
  *(.data)
- .data          0x0000000000200970        0x0 bin/kernel.o
- .data          0x0000000000200970        0x0 bin/bochs_port.o
- .data          0x0000000000200970        0x0 bin/gdt.o
- .data          0x0000000000200970        0x0 bin/ioports.o
- .data          0x0000000000200970        0x0 bin/multiboot.o
- .data          0x0000000000200970        0x0 bin/printk.o
- .data          0x0000000000200970        0x8 bin/screen.o
- .data          0x0000000000200978        0x0 bin/start.o
- .data          0x0000000000200978        0x0 bin/string.o
-                0x0000000000200978                PROVIDE (_edata, .)
+ .data          0x00000000002008c4        0x0 bin/kernel.o
+ .data          0x00000000002008c4        0x0 bin/bochs_port.o
+ .data          0x00000000002008c4        0x0 bin/gdt.o
+ .data          0x00000000002008c4        0x0 bin/ioports.o
+ .data          0x00000000002008c4        0x0 bin/multiboot.o
+ .data          0x00000000002008c4        0x0 bin/printk.o
+ .data          0x00000000002008c4        0x8 bin/screen.o
+ .data          0x00000000002008cc        0x0 bin/start.o
+ .data          0x00000000002008cc        0x0 bin/string.o
+                0x00000000002008cc                PROVIDE (_edata, .)
 
-.igot.plt       0x0000000000200978        0x0
+.igot.plt       0x00000000002008cc        0x0
  .igot.plt      0x0000000000000000        0x0 bin/kernel.o
 
-.rodata         0x0000000000200978        0x0
+.rodata         0x00000000002008cc        0x0
  *(.rodata)
-                0x0000000000200978                PROVIDE (_rodata, .)
-                0x0000000000200978                __e_load = .
+                0x00000000002008cc                PROVIDE (_rodata, .)
+                0x00000000002008cc                __e_load = .
 
-.rodata.str1.4  0x0000000000200978       0xc8
+.rodata.str1.4  0x00000000002008cc       0xb8
  .rodata.str1.4
-                0x0000000000200978       0xc8 bin/kernel.o
-                                         0xc5 (size before relaxing)
+                0x00000000002008cc       0xb8 bin/kernel.o
+                                         0xb5 (size before relaxing)
 
-.rodata.str1.1  0x0000000000200a40       0x25
+.rodata.str1.1  0x0000000000200984       0x25
  .rodata.str1.1
-                0x0000000000200a40       0x1c bin/kernel.o
+                0x0000000000200984       0x1c bin/kernel.o
  .rodata.str1.1
-                0x0000000000200a5c        0x9 bin/printk.o
+                0x00000000002009a0        0x9 bin/printk.o
 
-.rel.dyn        0x0000000000200a68        0x0 load address 0x0000000000200a65
+.rel.dyn        0x00000000002009ac        0x0 load address 0x00000000002009a9
  .rel.iplt      0x0000000000000000        0x0 bin/kernel.o
  .rel.text      0x0000000000000000        0x0 bin/kernel.o
 
-.bss            0x0000000000200a80     0x4060
+.bss            0x00000000002009c0     0x4060
  *(COMMON)
- COMMON         0x0000000000200a80     0x4000 bin/start.o
-                0x0000000000200a80                stack
+ COMMON         0x00000000002009c0     0x4000 bin/start.o
+                0x00000000002009c0                stack
  *(.bss)
- .bss           0x0000000000204a80        0x0 bin/kernel.o
- .bss           0x0000000000204a80        0x0 bin/bochs_port.o
- .bss           0x0000000000204a80        0x0 bin/gdt.o
- .bss           0x0000000000204a80        0x0 bin/ioports.o
- .bss           0x0000000000204a80       0x58 bin/multiboot.o
- .bss           0x0000000000204ad8        0x0 bin/printk.o
- .bss           0x0000000000204ad8        0x8 bin/screen.o
- .bss           0x0000000000204ae0        0x0 bin/start.o
- .bss           0x0000000000204ae0        0x0 bin/string.o
-                0x0000000000204ae0                PROVIDE (_ebss, .)
-                0x0000000000204ae0                ___e_kernel = .
+ .bss           0x00000000002049c0        0x0 bin/kernel.o
+ .bss           0x00000000002049c0        0x0 bin/bochs_port.o
+ .bss           0x00000000002049c0        0x0 bin/gdt.o
+ .bss           0x00000000002049c0        0x0 bin/ioports.o
+ .bss           0x00000000002049c0       0x58 bin/multiboot.o
+ .bss           0x0000000000204a18        0x0 bin/printk.o
+ .bss           0x0000000000204a18        0x8 bin/screen.o
+ .bss           0x0000000000204a20        0x0 bin/start.o
+ .bss           0x0000000000204a20        0x0 bin/string.o
+                0x0000000000204a20                PROVIDE (_ebss, .)
+                0x0000000000204a20                ___e_kernel = .
 
-.note.GNU-stack
-                0x0000000000000000        0x0
- .note.GNU-stack
-                0x0000000000000000        0x0 bin/kernel.o
- .note.GNU-stack
-                0x0000000000000000        0x0 bin/bochs_port.o
- .note.GNU-stack
-                0x0000000000000000        0x0 bin/gdt.o
- .note.GNU-stack
-                0x0000000000000000        0x0 bin/ioports.o
- .note.GNU-stack
-                0x0000000000000000        0x0 bin/multiboot.o
- .note.GNU-stack
-                0x0000000000000000        0x0 bin/printk.o
- .note.GNU-stack
-                0x0000000000000000        0x0 bin/screen.o
- .note.GNU-stack
-                0x0000000000000000        0x0 bin/string.o
-
-.comment        0x0000000000204ae0       0x22
- *(.comment)
- .comment       0x0000000000204ae0       0x22 bin/kernel.o
-                                         0x23 (size before relaxing)
- .comment       0x0000000000000000       0x23 bin/bochs_port.o
- .comment       0x0000000000000000       0x23 bin/gdt.o
- .comment       0x0000000000000000       0x23 bin/ioports.o
- .comment       0x0000000000000000       0x23 bin/multiboot.o
- .comment       0x0000000000000000       0x23 bin/printk.o
- .comment       0x0000000000000000       0x23 bin/screen.o
- .comment       0x0000000000000000       0x23 bin/string.o
+/DISCARD/
+ *(.comment .note* .dtors .ctors .gnu.*)
 LOAD bin/bochs_port.o
 LOAD bin/gdt.o
 LOAD bin/ioports.o

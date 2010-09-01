@@ -11,19 +11,19 @@
  * \param byte octet à envoyer
  * \param port port destination
  */
-inline void outb(const uint_16 port, const uint_8 byte);
+extern inline void outb(const uint_16 port, const uint_8 byte);
 
 /** \brief Reçoit un octet d'un port
  * \param port port expéditeur
  * \return char l'octet reçu
  */
-inline uint_8 inb(const  uint_16 port);
+extern inline uint_8 inb(const  uint_16 port);
 
 /** \brief Envoie un mot -16 bits) sur un port)*/
-inline void outw(const uint_16 port, const uint_16 word);
+extern inline void outw(const uint_16 port, const uint_16 word);
 
 /**\brief Lit un mot sur un port*/
-inline uint_16 inw(const uint_16 port);
+extern inline uint_16 inw(const uint_16 port);
 
 /** \brief Crée une petite temporisation.
  *
@@ -31,6 +31,6 @@ inline uint_16 inw(const uint_16 port);
  * de la vitesse du cpu
  * Cela peut servir à attendre la fin d'un opération d'entrée/sortie par les ports.
  */
-inline void io_wait(void);
+extern inline void io_wait(void);
 
 #endif

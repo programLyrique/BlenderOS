@@ -9,7 +9,7 @@ ARCH:=IA32
 #  Faire ainsi CC=gcc -D $(ARCH) -Wall -fno-hosted -m32 -mtune=i586 -c $^-o $(PREFIX)/bin/$@
 # Garder alors = et pas  := !!
 #Définition du compilateur
-CC:=gcc -D $(ARCH) -Wall -Wextra -O -fno-hosted -m32 -mtune=i586
+CC:=gcc -D $(ARCH) -W -Wall -Wextra -O -fno-hosted -m32 -mtune=i586
 # et du linker 
 LD:=ld -melf_i386 --oformat binary 
 
